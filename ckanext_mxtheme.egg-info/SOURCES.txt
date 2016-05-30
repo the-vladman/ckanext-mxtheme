@@ -1,0 +1,14 @@
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+ckanext/__init__.py
+ckanext/mxtheme/__init__.py
+ckanext/mxtheme/plugin.py
+ckanext/mxtheme/tests/__init__.py
+ckanext/mxtheme/tests/test_plugin.py
+ckanext_mxtheme.egg-info/PKG-INFO
+ckanext_mxtheme.egg-info/SOURCES.txt
+ckanext_mxtheme.egg-info/dependency_links.txt
+ckanext_mxtheme.egg-info/entry_points.txt
+ckanext_mxtheme.egg-info/top_level.txt
