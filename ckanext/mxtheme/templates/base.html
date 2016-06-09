@@ -1,0 +1,21 @@
+{% ckan_extends %}
+
+{% block links %}
+	{{ super() }}
+	{#<link rel="stylesheet" type="text/css" href="">	#}
+	<link rel="import" href="/bower_components/polymer/polymer.html">
+    <link rel="import" href="/bower_components/dgm-navbar/dgm-navbar.html">
+    <link rel="import" href="/bower_components/dgm-footer/dgm-footer.html">
+{% endblock %}
+
+{% block styles %}
+	{# {{ super() }} #}
+	{% resource 'mxtheme/mx.css' %}	
+{% endblock %}
+
+{% block scripts %}
+	{% resource 'mxtheme/mx.js' %}	
+	<script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/bower_components/webcomponentsjs/webcomponents.js"></script>
+{% endblock %}

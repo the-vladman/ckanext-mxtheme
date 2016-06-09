@@ -1,6 +1,0 @@
-
-        [ckan.plugins]
-        mxtheme=ckanext.mxtheme.plugin:MxthemePlugin
-	[babel.extractors]
-	ckan = ckan.lib.extract:extract_ckan
-    
