@@ -16,13 +16,14 @@
 
 {% block content_primary_nav %}
   {{ h.build_nav_icon('organization_read', _('Datasets'), id=c.group_dict.name) }}
-  {{ h.build_nav_icon('organization_activity', _('Activity Stream'), id=c.group_dict.name, offset=0) }}
+  {{ h.build_nav_icon('organization_activity', 'Actividad', id=c.group_dict.name, offset=0) }}
   {{ h.build_nav_icon('organization_about', _('About'), id=c.group_dict.name) }}
 {% endblock %}
 
 {% block secondary_content %}
   {% snippet 'snippets/organization.html', organization=c.group_dict, show_nums=true %}
   {% block button_report %}{% endblock %}
+  <h3>Filtrar por</h3>
   {% block organization_facets %}{% endblock %}
 {% endblock %}
 

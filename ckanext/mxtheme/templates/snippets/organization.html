@@ -18,7 +18,7 @@ Example:
 {% set url = h.url_for(controller='organization', action='read', id=organization.name) %}
 
   {% block info %}
-  <h4>{{ _('Organization') }}</h4>
+  <h2 class="institution-name">{{ organization.title or organization.name }}</h2>
   {% block image %}
     <p class="text-center">
       <a href="{{ url }}">
@@ -26,7 +26,7 @@ Example:
       </a>
     </p>
   {% endblock %}
-  <h2 class="institution-name">{{ organization.title or organization.name }}</h2>
+  
   {% if organization.description %}
     <p>
       {{ h.markdown_extract(organization.description, 180) }}

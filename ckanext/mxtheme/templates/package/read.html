@@ -1,10 +1,12 @@
 {% extends "package/read_base.html" %}
 
+{% block title_content_mx %}Datos{% endblock %}
+
 {% set pkg = c.pkg_dict %}
 
 {% block content_primary_nav %}
   {{ h.build_nav_icon('dataset_read', _('Dataset'), id=pkg.name) }}
-  {{ h.build_nav_icon('dataset_activity', _('Activity Stream'), id=pkg.name) }}
+  {{ h.build_nav_icon('dataset_activity', 'Actividad', id=pkg.name) }}
   {#
   {{ h.build_nav_icon('related_list', _('Related'), id=pkg.name) }}
   #}
