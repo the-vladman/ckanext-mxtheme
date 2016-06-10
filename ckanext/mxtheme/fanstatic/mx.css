@@ -7455,6 +7455,7 @@ h1:after {
 }
 .activity-icon.icon-update {
   background-color: #ab73e2;
+  color: #fff;
 }
 .activity-icon.icon-dataset {
   background-color: #8c73d0;
