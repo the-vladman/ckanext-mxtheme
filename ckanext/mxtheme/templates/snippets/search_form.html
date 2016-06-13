@@ -86,12 +86,12 @@
 
 {% if show_empty and count == 0 %}
   {% trans %}
-    <p class="extra">Please try another search.</p>
+    <p class="extra" style="float: left; margin-left: 15px;">Please try another search.</p>
   {% endtrans %}
 {% endif %}
 
 {% if error %}
   {% trans %}
-    <p><strong>There was an error while searching.</strong> Please try again.</p>
+    <p style="float: left; margin-left: 15px;"><strong>There was an error while searching.</strong> Please try again.</p>
   {% endtrans %}
 {% endif %}
