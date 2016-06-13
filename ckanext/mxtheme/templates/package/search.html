@@ -52,7 +52,11 @@
   <h3>Filtrar por</h3>
   {% for facet in c.facet_titles %}
     {% if c.facet_titles[facet] != 'Licencias'%}
-      {{ h.snippet('snippets/facet_list.html', title=c.facet_titles[facet], name=facet) }}      
+      {% if c.facet_titles[facet] == 'Categorias' %}
+        {{ h.snippet('snippets/facet_list.html', title='Categorías', name=facet) }}      
+      {% else %}
+        {{ h.snippet('snippets/facet_list.html', title=c.facet_titles[facet], name=facet) }}
+      {% endif %}
     {% endif %}
   {% endfor %}
 {% endblock %}
