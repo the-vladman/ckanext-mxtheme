@@ -6,6 +6,11 @@
   {% endif %}
 {% endblock %}
 
+{% block content_primary_nav %}
+  {{ h.build_nav_icon('organization_read', _('Datasets'), id=c.group_dict.name) }}
+  {{ h.build_nav_icon('organization_activity', 'Actividad', id=c.group_dict.name, offset=0) }}
+{% endblock %}
+
 {% block primary_content_inner %}
     {% block groups_search_form %}
       {% set facets = {
