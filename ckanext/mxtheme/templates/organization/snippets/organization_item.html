@@ -31,7 +31,7 @@ Example:
             {% if organization.packages %}
               <p class="datasets">{{ ungettext('{num} Dataset', '{num} Datasets', organization.packages).format(num=organization.packages) }}</p>
             {% else %}
-              <p class="datasets">{{ _('0 Datasets') }}</p>
+              <p class="datasets">{{ '0 Datos' }}</p>
             {% endif %}
         {% endblock %}
     </div>
