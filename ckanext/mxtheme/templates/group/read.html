@@ -44,6 +44,12 @@
 {% block secondary_content %}
   {{ super() }}
   {% for facet in c.facet_titles %}
-    {{ h.snippet('snippets/facet_list.html', title=c.facet_titles[facet], name=facet, extras={'id':c.group_dict.id}) }}
+    {% if c.facet_titles[facet] != 'Licencias' %}
+      {% if c.facet_titles[facet] == 'Categorias' %}
+        {{ h.snippet('snippets/facet_list.html', title='Categorías', name=facet, extras={'id':c.group_dict.id}) }}
+      {% else %}
+        {{ h.snippet('snippets/facet_list.html', title=c.facet_titles[facet], name=facet, extras={'id':c.group_dict.id}) }}
+      {% endif %}
+    {% endif %}
   {% endfor %}
 {% endblock %}

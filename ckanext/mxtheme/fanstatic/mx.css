@@ -7281,8 +7281,9 @@ h1:after {
   margin-top: 0;
   margin-bottom: 10px;
 }
+
 .result-item {
-  height: 275px;
+  height: 350px;
 }
 .result-item > a {
   display: inline-block;
