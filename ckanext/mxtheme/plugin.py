@@ -7,6 +7,9 @@ def format_display_date(time_stamp, format_date="%Y/%m/%d"):
     date_object = datetime.datetime.strptime(time_stamp, "%Y-%m-%dT%H:%M:%S.%f")
     return date_object.strftime(format_date)
 
+def is_regular_format(format):
+    return True if format in ['csv', 'xml', 'shp', 'kml', 'kmz', 'json'] else False
+
 
 class MxthemePlugin(plugins.SingletonPlugin):
     # IConfigurer
@@ -19,4 +22,4 @@ class MxthemePlugin(plugins.SingletonPlugin):
         toolkit.add_resource('fanstatic', 'mxtheme')
 
     def get_helpers(self):
-        return {'format_display_date': format_display_date}
+        return {'format_display_date': format_display_date, 'is_regular_format': is_regular_format}
