@@ -5,20 +5,12 @@
 {% set search_class = search_class if search_class else 'search-giant' %}
 {% set no_bottom_border = no_bottom_border if no_bottom_border else false %}
 
-<form class="form-inline {% if no_bottom_border %} no-bottom-border{% endif %}" method="get" data-module="select-switch">
+<form class="search-form form-inline {% if no_bottom_border %} no-bottom-border{% endif %}" method="get" data-module="select-switch">
   {% block search_input %}
-    <div class="col-md-12 form-group search-keyword">
+    <div class="search-input control-group col-md-12 form-group search-keyword">
       <input type="text" class="form-control block" name="q" value="{{ query }}" autocomplete="off" placeholder="{{ placeholder }}">
-       <button type="submit" value="search" style="cursor: pointer;
-    display: block;
-    position: absolute;
-    top: 50%;
-    margin-top: -10px;
-    right: 10px;
-    height: 20px;
-    padding: 0;
-    border: none;
-    background: transparent;">
+       <button type="submit" value="search" style="cursor: pointer; display: block; position: absolute; top: 50%; margin-top: 0px;
+right: 10px; height: 20px; padding: 0; border: none; background: transparent;">
           <i class="glyphicon glyphicon-search"></i>
       </button>
     </div>
@@ -44,7 +36,7 @@
           <div class="pull-right">
               <label for="order">{{ _('Order by') }}</label>
               <div class="custom-select">
-                  <select name="order" class="form-control">
+                  <select name="sort" class="form-control">
                       {% for label, value in sorting %}
                         {% if label and value %}
                           <option value="{{ value }}"{% if sorting_selected == value %} selected="selected"{% endif %}>{{ label }}</option>
