@@ -10,7 +10,6 @@ Example:
 
   {% snippet 'snippets/search_result_text.html', query=query, count=count, type='dataset' %}
 
-#}
 {% if type == 'dataset' %}
   {% set text_query = ungettext('{number} dataset found for "{query}"', '{number} datasets found for "{query}"', count) %}
   {% set text_query_none = _('No datasets found for "{query}"') %}
@@ -43,3 +42,5 @@ Example:
     {{ text_no_query_none }}
   {%- endif -%}
 {%- endif -%}
+#}
+654654 Recursos
