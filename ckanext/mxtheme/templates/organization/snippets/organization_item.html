@@ -28,9 +28,8 @@ Example:
         {% endblock %}
         
         {% block datasets %}
-            {{organization}}
-            {% if organization.packages %}
-              <p class="datasets">{{ ungettext('{num} Dataset', '{num} Datasets', organization.packages).format(num=organization.packages) }}</p>
+            {% if organization.package_count != 0 %}
+              <p class="datasets">{{organization.package_count}} Datos</p>
             {% else %}
               <p class="datasets">{{ '0 Datos' }}</p>
             {% endif %}
