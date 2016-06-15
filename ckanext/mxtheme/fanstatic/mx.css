@@ -7368,6 +7368,10 @@ h1:after {
 .dataset-format[data-format="ZIP"] {
   background-color: #001dff;
 }
+.dataset-format[data-format="other"],
+.dataset-format[data-format="OTHER"] {
+  background-color: #ef00ff;
+}
 .tag-icon {
   display: inline-block;
   width: 30px;
