@@ -7370,7 +7370,7 @@ h1:after {
 }
 .dataset-format[data-format="other"],
 .dataset-format[data-format="OTHER"] {
-  background-color: #ff990;
+  background-color: #ff9900;
 }
 .dataset-format[data-format="txt"],
 .dataset-format[data-format="TXT"] {
