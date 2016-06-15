@@ -7318,17 +7318,17 @@ h1:after {
 }
 .dataset-format[data-format="csv"],
 .dataset-format[data-format="CSV"] {
-  background-color: #ffd100;
+  background-color: #ffcc00;
 }
 .dataset-format[data-format="kml"],
 .dataset-format[data-format="KML"] {
-  background-color: #474747;
+  background-color: #6633cc;
 }
 .dataset-format[data-format="geojson"],
 .dataset-format[data-format="GEOJSON"],
 .dataset-format[data-format="json"],
 .dataset-format[data-format="JSON"] {
-  background-color: #33ffd1;
+  background-color: #ff6600;
 }
 .dataset-format[data-format="pdf"],
 .dataset-format[data-format="PDF"] {
@@ -7350,7 +7350,7 @@ h1:after {
 }
 .dataset-format[data-format="xml"],
 .dataset-format[data-format="XML"] {
-  background-color: #0000d1;
+  background-color: #66cc33;
 }
 .dataset-format[data-format="oracle"],
 .dataset-format[data-format="ORACLE"] {
@@ -7358,11 +7358,11 @@ h1:after {
 }
 .dataset-format[data-format="shp"],
 .dataset-format[data-format="SHP"] {
-  background-color: #bada55;
+  background-color: #0099ff;
 }
 .dataset-format[data-format="kmz"],
 .dataset-format[data-format="KMZ"] {
-  background-color: #55adab;
+  background-color: #0033cc;
 }
 .dataset-format[data-format="zip"],
 .dataset-format[data-format="ZIP"] {
@@ -7370,11 +7370,11 @@ h1:after {
 }
 .dataset-format[data-format="other"],
 .dataset-format[data-format="OTHER"] {
-  background-color: #ef00ff;
+  background-color: #ff990;
 }
 .dataset-format[data-format="txt"],
 .dataset-format[data-format="TXT"] {
-  background-color: #aaa;
+  background-color: #999999;
 }
 
 .tag-icon {
