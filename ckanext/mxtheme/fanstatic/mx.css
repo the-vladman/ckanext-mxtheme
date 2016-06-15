@@ -7372,6 +7372,11 @@ h1:after {
 .dataset-format[data-format="OTHER"] {
   background-color: #ef00ff;
 }
+.dataset-format[data-format="txt"],
+.dataset-format[data-format="TXT"] {
+  background-color: #aaa;
+}
+
 .tag-icon {
   display: inline-block;
   width: 30px;
