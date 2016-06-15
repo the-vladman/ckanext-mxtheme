@@ -8,7 +8,7 @@ def format_display_date(time_stamp, format_date="%Y/%m/%d"):
     return date_object.strftime(format_date)
 
 def is_regular_format(format):
-    return True if format in ['csv', 'xml', 'shp', 'kml', 'kmz', 'json'] else False
+    return True if format in ['csv', 'xml', 'shp', 'kml', 'kmz', 'json', 'xls', 'txt'] else False
 
 
 class MxthemePlugin(plugins.SingletonPlugin):
