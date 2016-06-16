@@ -30,7 +30,7 @@ def get_site_protocol_and_host():
     return (None, None)
 
 def url_for(*args, **kw):
-     '''Return the URL for the given controller, action, id, etc.
+    '''Return the URL for the given controller, action, id, etc.
     Usage::
         import ckan.plugins.toolkit as toolkit
         url = toolkit.url_for(controller='package', action='read',
