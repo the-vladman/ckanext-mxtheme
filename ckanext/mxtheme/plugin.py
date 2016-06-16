@@ -1,5 +1,6 @@
 import datetime
 import logging
+import urlparse
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 from ckan.lib.helpers import _add_i18n_to_url
