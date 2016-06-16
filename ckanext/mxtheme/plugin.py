@@ -19,7 +19,7 @@ def is_regular_format(format):
 def url(*args, **kw):
     '''Create url adding i18n information if selected
     wrapper for pylons.url'''
-    return url_for(*args, *kw)
+    return url_for(*args, **kw)
 
 def get_site_protocol_and_host():
     '''Return the protocol and host of the configured `ckan.site_url`.
