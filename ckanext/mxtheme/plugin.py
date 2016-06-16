@@ -7,6 +7,7 @@ from ckan.lib.helpers import _add_i18n_to_url
 from pylons import config
 from routes import url_for as _routes_default_url_for
 
+log = logging.getLogger(__name__)
 
 def format_display_date(time_stamp, format_date="%Y/%m/%d"):
     date_object = datetime.datetime.strptime(time_stamp, "%Y-%m-%dT%H:%M:%S.%f")
@@ -14,6 +15,11 @@ def format_display_date(time_stamp, format_date="%Y/%m/%d"):
 
 def is_regular_format(format):
     return True if format in ['csv', 'xml', 'shp', 'kml', 'kmz', 'json', 'xls', 'txt', 'tls'] else False
+
+def url(*args, **kw):
+    '''Create url adding i18n information if selected
+    wrapper for pylons.url'''
+    return url_for(*args, *kw)
 
 def get_site_protocol_and_host():
     '''Return the protocol and host of the configured `ckan.site_url`.
@@ -24,7 +30,7 @@ def get_site_protocol_and_host():
     If the setting is missing, `(None, None)` is returned instead.
     '''
     site_url = config.get('ckan.site_url', None)
-    logging.info('ckan.site_url {0}'.format(site_url))
+    log.info('ckan.site_url {0}'.format(site_url))
     if site_url is not None:
         parsed_url = urlparse.urlparse(site_url)
         return (
@@ -73,4 +79,4 @@ class MxthemePlugin(plugins.SingletonPlugin):
         toolkit.add_resource('fanstatic', 'mxtheme')
 
     def get_helpers(self):
-        return {'format_display_date': format_display_date, 'is_regular_format': is_regular_format, 'url_for': url_for}
+        return {'format_display_date': format_display_date, 'is_regular_format': is_regular_format, 'url_for': url_for, 'url': url}
