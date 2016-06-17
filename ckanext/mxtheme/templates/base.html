@@ -118,9 +118,9 @@
     #}
    {% block scripts %}
     {% resource 'mxtheme/mx.js' %}  
-    <script src="{{h.url_for('/bower_components/jquery/dist/jquery.js}}', locale='default', qualified=true)"></script>
-    <script src="/busca/bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="/busca/bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="{{h.url_for('/bower_components/jquery/dist/jquery.js', locale='default', qualified=true)}}"></script>
+    <script src="{{h.url_for('/busca/bower_components/bootstrap/dist/js/bootstrap.js', locale='default', qualified=true)}}"></script>
+    <script src="{{h.url_for('/busca/bower_components/webcomponentsjs/webcomponents-lite.js', locale='default', qualified=true)}}"></script>
     <script type="text/javascript">
       var _sf_async_config = { uid: 62850, domain: 'datos.gob.mx', useCanonical: true };
       (function() {
