@@ -105,15 +105,14 @@
            <div id="additionals" class="row">
                 <div id="sidebar" class="col-md-3">
                     {% block resources_list %}
-                    {% snippet "package/snippets/resources.html", pkg=pkg, active=res.id %}
-                  {% endblock %}
+                        {% snippet "package/snippets/resources.html", pkg=pkg, active=res.id %}
+                    {% endblock %}
 
-                  {% block resource_license %}
-                    {% snippet "snippets/social.html" %}
-                  {% endblock %}
+                    {% block resource_license %}
+                        {% snippet "snippets/social.html" %}
+                    {% endblock %}
                 </div>
                 <div id="info" class="col-md-9">
-                   
                    {% block resource_additional_information %}
                         {% if res %}
                           <section class="module">
@@ -159,3 +158,5 @@
        </div> 
     {% endblock %}
 {% endblock %}
+
+{% block primary_content %}{% endblock %}
