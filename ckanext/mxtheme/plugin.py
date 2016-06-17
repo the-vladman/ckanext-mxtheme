@@ -7,19 +7,23 @@ from ckan.lib.helpers import _add_i18n_to_url
 from pylons import config
 from routes import url_for as _routes_default_url_for
 
+
 log = logging.getLogger(__name__)
 
 def format_display_date(time_stamp, format_date="%Y/%m/%d"):
     date_object = datetime.datetime.strptime(time_stamp, "%Y-%m-%dT%H:%M:%S.%f")
     return date_object.strftime(format_date)
 
+
 def is_regular_format(format):
     return True if format in ['csv', 'xml', 'shp', 'kml', 'kmz', 'json', 'xls', 'txt', 'tls'] else False
+
 
 def url(*args, **kw):
     '''Create url adding i18n information if selected
     wrapper for pylons.url'''
     return url_for(*args, **kw)
+
 
 def get_site_protocol_and_host():
     '''Return the protocol and host of the configured `ckan.site_url`.
@@ -44,6 +48,7 @@ def get_site_protocol_and_host():
             netloc
         )
     return (None, None)
+
 
 def url_for(*args, **kw):
     '''Return the URL for the given controller, action, id, etc.
