@@ -33,9 +33,15 @@ def get_site_protocol_and_host():
     log.info('ckan.site_url {0}'.format(site_url))
     if site_url is not None:
         parsed_url = urlparse.urlparse(site_url)
+
+        if parsed_url.path:
+            netloc = '{0}{1}'.format(parsed_url.netloc.encode('utf-8'), parsed_url.path.encode('utf-8'))
+        else:
+            netloc = '{0}'.format(parsed_url.netloc.encode('utf-8'))
+
         return (
             parsed_url.scheme.encode('utf-8'),
-            parsed_url.netloc.encode('utf-8')
+            netloc
         )
     return (None, None)
 
