@@ -7474,3 +7474,71 @@ h1:after {
 .activity-icon.icon-add {
   background-color: #80a766;
 }
+#additionals #sidebar h2 {
+  line-height: 50px;
+  color: #fff;
+}
+.btn.btn-embed {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+}
+.btn.btn-embed {
+  background-color: #9b9b9b;
+}
+.btn.btn-embed:hover,
+.btn.btn-embed:focus,
+.btn.btn-embed:active {
+  background-color: #7b7b7b;
+}
+#additionals #sidebar h2 {
+  height: 50px;
+  margin-top: 0;
+  margin-bottom: 10px;
+  background-color: #545454;
+  position: relative;
+}
+#additionals #sidebar h2:after {
+  margin-top: -25px;
+  height: 0;
+  width: 0;
+  border: solid transparent;
+  border-left-color: #545454;
+  border-width: 25px;
+  content: " ";
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  pointer-events: none;
+}
+#content.no-border {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+#content.details #tabs {
+  margin-top: 50px;
+}
+#content .btn-embed {
+  margin-bottom: 30px;
+  float: right;
+}
+#content iframe {
+  width: 100%;
+  height: 300px;
+  margin-bottom: 100px;
+  border: none;
+}
+#content #additionals {
+  border-top: 1px solid #d8d8d8;
+}
+#content #additionals #sidebar {
+  position: relative;
+  z-index: 10;
+}
+#content #additionals #info {
+  padding: 50px 30px 0;
+  -webkit-box-shadow: 1px 0 0 0 #d8d8d8 inset;
+          box-shadow: 1px 0 0 0 #d8d8d8 inset;
+  position: relative;
+  z-index: 1;
+}
