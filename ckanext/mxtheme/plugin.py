@@ -19,6 +19,77 @@ def is_regular_format(format):
     return True if format in ['csv', 'xml', 'shp', 'kml', 'kmz', 'json', 'xls', 'txt', 'tls'] else False
 
 
+def _add_i18n_to_url(url_to_amend, **kw):
+    # If the locale keyword param is provided then the url is rewritten
+    # using that locale .If return_to is provided this is used as the url
+    # (as part of the language changing feature).
+    # A locale of default will not add locale info to the url.
+
+    default_locale = False
+    locale = kw.pop('locale', None)
+    no_root = kw.pop('__ckan_no_root', False)
+    allowed_locales = ['default'] + i18n.get_locales()
+    if locale and locale not in allowed_locales:
+        locale = None
+    if locale:
+        if locale == 'default':
+            default_locale = True
+    else:
+        try:
+            locale = request.environ.get('CKAN_LANG')
+            default_locale = request.environ.get('CKAN_LANG_IS_DEFAULT', True)
+        except TypeError:
+            default_locale = True
+    try:
+        root = request.environ.get('SCRIPT_NAME', '')
+    except TypeError:
+        root = ''
+    if kw.get('qualified', False):
+        # if qualified is given we want the full url ie http://...
+        protocol, host = get_site_protocol_and_host()
+        root = _routes_default_url_for('/',
+                                       qualified=True,
+                                       host=host,
+                                       protocol=protocol)[:-1]
+    # ckan.root_path is defined when we have none standard language
+    # position in the url
+    root_path = config.get('ckan.root_path', None)
+    if root_path:
+        # FIXME this can be written better once the merge
+        # into the ecportal core is done - Toby
+        # we have a special root specified so use that
+        if default_locale:
+            root_path = re.sub('/{{LANG}}', '', root_path)
+        else:
+            root_path = re.sub('{{LANG}}', locale, root_path)
+        # make sure we don't have a trailing / on the root
+        if root_path[-1] == '/':
+            root_path = root_path[:-1]
+
+        url_path = url_to_amend[len(root):]
+        url = '%s%s%s' % (root, root_path, url_path)
+    else:
+        if default_locale:
+            url = url_to_amend
+        else:
+            # we need to strip the root from the url and the add it before
+            # the language specification.
+            url = url_to_amend[len(root):]
+            url = '%s/%s%s' % (root, locale, url)
+
+    # stop the root being added twice in redirects
+    if no_root:
+        url = url_to_amend[len(root):]
+        if not default_locale:
+            url = '/%s%s' % (locale, url)
+
+    if url == '/packages':
+        error = 'There is a broken url being created %s' % kw
+        raise ckan.exceptions.CkanUrlException(error)
+
+    return url
+
+
 def url(*args, **kw):
     '''Create url adding i18n information if selected
     wrapper for pylons.url'''
@@ -76,7 +147,7 @@ def url_for(*args, **kw):
         kw['protocol'], kw['host'] = get_site_protocol_and_host()
     my_url = _routes_default_url_for(*args, **kw)
     kw['__ckan_no_root'] = no_root
-    return _add_i18n_to_url(my_url, locale=locale, **kw)
+    return _add_i18n_to_url(my_url, locale=locale, __ckan_no_root=True, **kw)
 
 
 class MxthemePlugin(plugins.SingletonPlugin):
