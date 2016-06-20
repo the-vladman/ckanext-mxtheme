@@ -49,6 +49,7 @@ def _add_i18n_to_url(url_to_amend, **kw):
         log.warning(root)
     except TypeError:
         root = ''
+
     if kw.get('qualified', False):
         # if qualified is given we want the full url ie http://...
         protocol, host = get_site_protocol_and_host()
@@ -56,7 +57,7 @@ def _add_i18n_to_url(url_to_amend, **kw):
                                        qualified=True,
                                        host=host,
                                        protocol=protocol)[:-1]
-        log.warning(root)
+
     # ckan.root_path is defined when we have none standard language
     # position in the url
     root_path = config.get('ckan.root_path', None)
@@ -115,10 +116,7 @@ def get_site_protocol_and_host():
     if site_url is not None:
         parsed_url = urlparse.urlparse(site_url)
 
-        if parsed_url.path:
-            netloc = '{0}{1}'.format(parsed_url.netloc.encode('utf-8'), parsed_url.path.encode('utf-8'))
-        else:
-            netloc = '{0}'.format(parsed_url.netloc.encode('utf-8'))
+        netloc = '{0}'.format(parsed_url.netloc.encode('utf-8'))
 
         return (
             parsed_url.scheme.encode('utf-8'),
