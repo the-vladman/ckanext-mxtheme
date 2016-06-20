@@ -53,12 +53,10 @@ def _add_i18n_to_url(url_to_amend, **kw):
     if kw.get('qualified', False):
         # if qualified is given we want the full url ie http://...
         protocol, host = get_site_protocol_and_host()
-        log.warning(host)
         root = _routes_default_url_for('/',
                                        qualified=True,
                                        host=host,
                                        protocol=protocol)[:-1]
-        log.warning(root)
     # ckan.root_path is defined when we have none standard language
     # position in the url
     root_path = config.get('ckan.root_path', None)
@@ -72,8 +70,9 @@ def _add_i18n_to_url(url_to_amend, **kw):
         else:
             root_path = re.sub('{{LANG}}', locale, root_path)
         # make sure we don't have a trailing / on the root
-        if root_path[-1] == '/':
-            root_path = root_path[:-1]
+        if len(root_path) > 0:
+            if root_path[-1] == '/':
+                root_path = root_path[:-1]
 
         url_path = url_to_amend[len(root):]
         url = '%s%s%s' % (root, root_path if root_aux in root_path_aux else '', url_path)
