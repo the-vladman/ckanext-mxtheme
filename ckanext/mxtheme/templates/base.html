@@ -120,7 +120,7 @@
     circumstances
     #}
    {% block scripts %}
-    {% h.url_for_static('mxtheme/mx.js', locale='default', qualified=true) %}  
+    {{ h.url_for_static('mxtheme/mx.js', locale='default', qualified=true) }}  
     <script src="{{h.url_for('/bower_components/jquery/dist/jquery.js', locale='default', qualified=true)}}"></script>
     <script src="{{h.url_for('/bower_components/bootstrap/dist/js/bootstrap.js', locale='default', qualified=true)}}"></script>
     <script src="{{h.url_for('/bower_components/webcomponentsjs/webcomponents-lite.js', locale='default', qualified=true)}}"></script>
