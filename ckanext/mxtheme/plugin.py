@@ -56,6 +56,7 @@ def _add_i18n_to_url(url_to_amend, **kw):
                                        qualified=True,
                                        host=host,
                                        protocol=protocol)[:-1]
+        log.warning(root)
     # ckan.root_path is defined when we have none standard language
     # position in the url
     root_path = config.get('ckan.root_path', None)
@@ -110,7 +111,7 @@ def get_site_protocol_and_host():
     If the setting is missing, `(None, None)` is returned instead.
     '''
     site_url = config.get('ckan.site_url', None)
-    log.info('ckan.site_url {0}'.format(site_url))
+
     if site_url is not None:
         parsed_url = urlparse.urlparse(site_url)
 
