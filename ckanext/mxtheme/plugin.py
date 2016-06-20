@@ -29,7 +29,7 @@ def _add_i18n_to_url(url_to_amend, **kw):
     default_locale = False
     locale = kw.pop('locale', None)
     no_root = kw.pop('__ckan_no_root', False)
-    allowed_locales = ['default'] + i18n.get_locales()
+    allowed_locales = ['default']
     if locale and locale not in allowed_locales:
         locale = None
     if locale:
