@@ -4,6 +4,7 @@ import urlparse
 import i18n
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
+from ckan.common import request
 #from ckan.lib.helpers import _add_i18n_to_url
 from pylons import config
 from routes import url_for as _routes_default_url_for
