@@ -90,5 +90,5 @@ class MxthemePlugin(plugins.SingletonPlugin):
         toolkit.add_resource('fanstatic', 'mxtheme')
 
     def get_helpers(self):
-        #return {'format_display_date': format_display_date, 'is_regular_format': is_regular_format, 'url_for': url_for, 'url': url}
-        return {'format_display_date': format_display_date, 'is_regular_format': is_regular_format}
+        return {'format_display_date': format_display_date, 'is_regular_format': is_regular_format, 'url_for': url_for, 'url': url}
+        #return {'format_display_date': format_display_date, 'is_regular_format': is_regular_format}
