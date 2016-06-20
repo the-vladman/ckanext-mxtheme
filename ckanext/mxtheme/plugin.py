@@ -3,7 +3,7 @@ import logging
 import urlparse
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
-from ckan.lib.helpers import _add_i18n_to_url
+#from ckan.lib.helpers import _add_i18n_to_url
 from pylons import config
 from routes import url_for as _routes_default_url_for
 
@@ -161,5 +161,5 @@ class MxthemePlugin(plugins.SingletonPlugin):
         toolkit.add_resource('fanstatic', 'mxtheme')
 
     def get_helpers(self):
-        return {'format_display_date': format_display_date, 'is_regular_format': is_regular_format, 'url_for': url_for, 'url': url}
+        return {'format_display_date': format_display_date, 'is_regular_format': is_regular_format, 'url_for': url_for, 'url': url, '_add_i18n_to_url': _add_i18n_to_url}
         #return {'format_display_date': format_display_date, 'is_regular_format': is_regular_format}
