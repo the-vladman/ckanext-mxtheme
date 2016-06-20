@@ -150,7 +150,7 @@ def url_for(*args, **kw):
     if kw.get('qualified', False):
         kw['protocol'], kw['host'] = get_site_protocol_and_host()
     my_url = _routes_default_url_for(*args, **kw)
-    kw['__ckan_no_root'] = True
+    kw['__ckan_no_root'] = no_root
     return _add_i18n_to_url(my_url, locale=locale, **kw)
 
 
