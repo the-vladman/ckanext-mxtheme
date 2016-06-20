@@ -46,7 +46,7 @@ def _add_i18n_to_url(url_to_amend, **kw):
             default_locale = True
     try:
         root = request.environ.get('SCRIPT_NAME', '')
-        log.warning(root)
+        root_aux = root
     except TypeError:
         root = ''
 
@@ -62,6 +62,7 @@ def _add_i18n_to_url(url_to_amend, **kw):
     # ckan.root_path is defined when we have none standard language
     # position in the url
     root_path = config.get('ckan.root_path', None)
+    root_path_aux = root_path
     if root_path:
         # FIXME this can be written better once the merge
         # into the ecportal core is done - Toby
@@ -75,7 +76,7 @@ def _add_i18n_to_url(url_to_amend, **kw):
             root_path = root_path[:-1]
 
         url_path = url_to_amend[len(root):]
-        url = '%s%s%s' % (root, root_path, url_path)
+        url = '%s%s%s' % (root, root_path if root_aux != root_path_aux else '', url_path)
     else:
         if default_locale:
             url = url_to_amend
