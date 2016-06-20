@@ -46,6 +46,7 @@ def _add_i18n_to_url(url_to_amend, **kw):
             default_locale = True
     try:
         root = request.environ.get('SCRIPT_NAME', '')
+        log.warning(root)
     except TypeError:
         root = ''
     if kw.get('qualified', False):
