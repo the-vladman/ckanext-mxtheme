@@ -4,8 +4,8 @@
 {% block title_content_mx %}Instituciones{% endblock %}
 
 {% block breadcrumb_content %}
-  <li>{% link_for 'Instituciones', controller='organization', action='index' %}</li>
-  <li class="active">{% link_for c.group_dict.display_name|truncate(35), controller='organization', action='read', id=c.group_dict.name %}</li>
+  <li>{% link_for 'Instituciones', controller='organization', action='index', locale='default', qualified=true %}</li>
+  <li class="active">{% link_for c.group_dict.display_name|truncate(35), controller='organization', action='read', id=c.group_dict.name, locale='default', qualified=true %}</li>
 {% endblock %}
 
 {% block content_action %}

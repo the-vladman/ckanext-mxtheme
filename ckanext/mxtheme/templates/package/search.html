@@ -2,7 +2,7 @@
 {% import 'macros/form.html' as form %}
 
 {% block breadcrumb_content %}
-  <li class="active">{{ h.nav_link('Datos', controller='package', action='search', highlight_actions = 'new index') }}</li>
+  <li class="active">{{ h.nav_link('Datos', controller='package', action='search', highlight_actions = 'new index', locale='default', qualified=true) }}</li>
 {% endblock %}
 
 {% block title_content_mx %}Datos Abiertos{% endblock %}
