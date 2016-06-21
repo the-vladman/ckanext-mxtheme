@@ -7,14 +7,17 @@ count        - The number of results for the search
 type         - Search result type (dataset, group, organization)
 
 Example:
+#}
 
-  {% snippet 'snippets/search_result_text.html', query=query, count=count, type='dataset' %}
+{% snippet 'snippets/search_result_text.html', query=query, count=count, type='dataset' %}
 
 {% if type == 'dataset' %}
+  {#
   {% set text_query = ungettext('{number} dataset found for "{query}"', '{number} datasets found for "{query}"', count) %}
   {% set text_query_none = _('No datasets found for "{query}"') %}
   {% set text_no_query = ungettext('{number} dataset found', '{number} datasets found', count) %}
   {% set text_no_query_none = _('No datasets found') %}
+  #}
 
 {% elif type == 'group' %}
   {% set text_query = ungettext('{number} group found for "{query}"', '{number} groups found for "{query}"', count) %}
@@ -29,18 +32,22 @@ Example:
   {% set text_no_query_none = 'No existen instituciones' %}
 {%- endif -%}
 
-{% if query %}
-  {%- if count -%}
-    {{ text_query.format(number=h.localised_number(count), query=query) }}
+
+{% if type != 'dataset' %}
+  {% if query %}
+    {%- if count -%}
+      {{ text_query.format(number=h.localised_number(count), query=query) }}
+    {%- else -%}
+      {{ text_query_none.format(query=query) }}
+    {%- endif -%}
   {%- else -%}
-    {{ text_query_none.format(query=query) }}
+    {%- if count -%}
+      {{ text_no_query.format(number=h.localised_number(count)) }}
+    {%- else -%}
+      {{ text_no_query_none }}
+    {%- endif -%}
   {%- endif -%}
-{%- else -%}
-  {%- if count -%}
-    {{ text_no_query.format(number=h.localised_number(count)) }}
-  {%- else -%}
-    {{ text_no_query_none }}
-  {%- endif -%}
-{%- endif -%}
-#}
-11850 Datos en datos.gob.mx
+{% else %}
+  13153 Datos en datos.gob.mx
+{% endif %}
+
