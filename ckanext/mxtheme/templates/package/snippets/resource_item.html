@@ -5,9 +5,9 @@
 <div class="resource-item dataset-item row" data-id="{{ res.id }}">
   <div class="col-md-1">
       {% if h.is_regular_format(res.format.lower()) %}
-        <img src="/img/ic-{{ res.format.lower() or 'data' }}.png" alt="{{ res.format }}" style="width: 40px;">
+        <img src="http://datos.gob.mx/ckan/assets/img/ic-{{ res.format.lower() or 'data' }}.png" alt="{{ res.format }}" style="width: 40px;">
       {% else %}
-        <img src="/img/ic-generic.png" alt="{{ res.format }}" style="width: 40px;">
+        <img src="http://datos.gob.mx/ckan/assets/img/ic-generic.png" alt="{{ res.format }}" style="width: 40px;">
       {% endif %}
   </div>
   {% block resource_item_title %}

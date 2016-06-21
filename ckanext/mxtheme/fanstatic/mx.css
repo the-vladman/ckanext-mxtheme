@@ -259,8 +259,8 @@ th {
 }
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url('http://cdn.datos.gob.mx/assets/webcomponents/public/bower_components/bootstrap/fonts/glyphicons-halflings-regular.eot');
-  src: url('http://cdn.datos.gob.mx/assets/webcomponents/public/bower_components/bootstrap/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('http://cdn.datos.gob.mx/assets/webcomponents/public/bower_components/bootstrap/fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('http://cdn.datos.gob.mx/assets/webcomponents/public/bower_components/bootstrap/fonts/glyphicons-halflings-regular.woff') format('woff'), url('http://cdn.datos.gob.mx/assets/webcomponents/public/bower_components/bootstrap/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('http://cdn.datos.gob.mx/assets/webcomponents/public/bower_components/bootstrap/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+  src: url('http://datos.gob.mx/ckan/assets/bower_components/bootstrap/fonts/glyphicons-halflings-regular.eot');
+  src: url('http://datos.gob.mx/ckan/assets/bower_components/bootstrap/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('http://datos.gob.mx/ckan/assets/bower_components/bootstrap/fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('http://datos.gob.mx/ckan/assets/bower_components/bootstrap/fonts/glyphicons-halflings-regular.woff') format('woff'), url('http://datos.gob.mx/ckan/assets/bower_components/bootstrap/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('http://datos.gob.mx/ckan/assets/bower_components/bootstrap/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
 .glyphicon {
   position: relative;
@@ -7388,38 +7388,38 @@ h1:after {
   border-radius: 15px;
 }
 .tag-icon.tag-cultura-y-turismo {
-  background-image: url(/img/ic-cultura-y-turismo.3d691d9c.png);
+  background-image: url(http://datos.gob.mx/ckan/assets/img/ic-cultura-y-turismo.3d691d9c.png);
 }
 .tag-icon.tag-desarrollo-sostenible {
-  background-image: url(/img/ic-desarollo-sostenible.png);
+  background-image: url(http://datos.gob.mx/ckan/assets/img/ic-desarollo-sostenible.png);
 }
 .tag-icon.tag-economia {
-  background-image: url(/img/ic-economia.a41a7d76.png);
+  background-image: url(http://datos.gob.mx/ckan/assets/img/ic-economia.a41a7d76.png);
 }
 .tag-icon.tag-educacion {
-  background-image: url(/img/ic-educacion.5f67eb31.png);
+  background-image: url(http://datos.gob.mx/ckan/assets/img/ic-educacion.5f67eb31.png);
 }
 .tag-icon.tag-energia-y-medio-ambiente {
-  background-image: url(/img/ic-energia-y-medio-ambiente.3b4c6068.png);
+  background-image: url(http://datos.gob.mx/ckan/assets/img/ic-energia-y-medio-ambiente.3b4c6068.png);
 }
 .tag-icon.tag-finanzas-y-contrataciones {
-  background-image: url(/img/ic-finanzas-y-contrataciones.2d0bfbe3.png);
+  background-image: url(http://datos.gob.mx/ckan/assets/img/ic-finanzas-y-contrataciones.2d0bfbe3.png);
 }
 .tag-icon.tag-geoespacial {
-  background-image: url(/img/ic-geoespacial.110d9673.png);
+  background-image: url(http://datos.gob.mx/ckan/assets/img/ic-geoespacial.110d9673.png);
 }
 .tag-icon.tag-gobiernos-locales {
-  background-image: url(/img/ic-gobiernos-locales.d06b49cd.png);
+  background-image: url(http://datos.gob.mx/ckan/assets/img/ic-gobiernos-locales.d06b49cd.png);
 }
 .tag-icon.tag-salud {
-  background-image: url(/img/ic-salud.a66d6b81.png);
+  background-image: url(http://datos.gob.mx/ckan/assets/img/ic-salud.a66d6b81.png);
 }
 .tag-icon.tag-seguridad-y-justicia {
-  background-image: url(/img/ic-seguridad-y-justicia.55f52d4c.png);
+  background-image: url(http://datos.gob.mx/ckan/assets/img/ic-seguridad-y-justicia.55f52d4c.png);
   background-position: 50% 42%;
 }
 .tag-icon.tag-infraestructura {
-  background-image: url(/img/ic-infraestructura.4cbc6e36.png);
+  background-image: url(http://datos.gob.mx/ckan/assets/img/ic-infraestructura.4cbc6e36.png);
 }
 .tab-pane > h2 {
   margin: 50px 0 30px;
