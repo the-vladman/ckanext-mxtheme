@@ -20,7 +20,7 @@ def format_display_date(time_stamp, format_date="%Y/%m/%d"):
 
 
 def is_regular_format(format):
-    return True if format in ['csv', 'xml', 'shp', 'kml', 'kmz', 'json', 'xls', 'txt', 'tls'] else False
+    return True if format in ['csv', 'xml', 'shp', 'kml', 'kmz', 'json', 'xls', 'txt', 'tls', 'pdf', 'xlsx'] else False
 
 
 def _add_i18n_to_url(url_to_amend, **kw):
