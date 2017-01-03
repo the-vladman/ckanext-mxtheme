@@ -259,8 +259,8 @@ th {
 }
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url('http://datos.gob.mx/ckan/assets/bower_components/bootstrap/fonts/glyphicons-halflings-regular.eot');
-  src: url('http://datos.gob.mx/ckan/assets/bower_components/bootstrap/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('http://datos.gob.mx/ckan/assets/bower_components/bootstrap/fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('http://datos.gob.mx/ckan/assets/bower_components/bootstrap/fonts/glyphicons-halflings-regular.woff') format('woff'), url('http://datos.gob.mx/ckan/assets/bower_components/bootstrap/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('http://datos.gob.mx/ckan/assets/bower_components/bootstrap/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+  src: url('https://cdn.datos.gob.mx/bower_components/bootstrap/fonts/glyphicons-halflings-regular.eot');
+  src: url('https://cdn.datos.gob.mx/bower_components/bootstrap/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('https://cdn.datos.gob.mx/bower_components/bootstrap/fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('https://cdn.datos.gob.mx/bower_components/bootstrap/fonts/glyphicons-halflings-regular.woff') format('woff'), url('https://cdn.datos.gob.mx/bower_components/bootstrap/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('https://cdn.datos.gob.mx/bower_components/bootstrap/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
 .glyphicon {
   position: relative;
