@@ -7542,3 +7542,15 @@ h1:after {
   position: relative;
   z-index: 1;
 }
+.search-form.btn {
+  position: relative;
+  top: -2px;
+}
+
+.js-hide {
+  display: none;
+}
+
+.js .js-hide.active {
+  display: block;
+}

@@ -43,7 +43,9 @@ right: 10px; height: 20px; padding: 0; border: none; background: transparent;">
                         {% endif %}
                       {% endfor %}
                   </select>
-                  <button class="btn js-hide" type="submit" style="display: none; position: relative; top: -2px;">Go</button>
+                {% block search_sortby_button %}
+                    <button class="btn js-hide" type="submit">{{ _('Go') }}</button>
+                {% endblock %}
               </div>
           </div>
       </div>
