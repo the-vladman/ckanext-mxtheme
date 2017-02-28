@@ -36,12 +36,13 @@ right: 10px; height: 20px; padding: 0; border: none; background: transparent;">
           <div class="pull-right">
               <label for="order">{{ _('Order by') }}</label>
               <div class="custom-select">
-                  <select name="sort" class="form-control">
+                  <select name="sort" id="field-order-by" class="form-control">
                       {% for label, value in sorting %}
                         {% if label and value %}
                           <option value="{{ value }}"{% if sorting_selected == value %} selected="selected"{% endif %}>{{ label }}</option>
                         {% endif %}
                       {% endfor %}
+                      <button class="btn js-hide" type="submit">Go</button>
                   </select>
               </div>
           </div>
