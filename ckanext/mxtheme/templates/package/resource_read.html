@@ -18,6 +18,22 @@
   <li class="active"><a href="">{{ h.resource_display_name(res)|truncate(30) }}</a></li>
 {% endblock %}
 
+  <script> // Para inyectar los campos `accrualPeriodicity` y `temporal`
+   var xhr;
+   if (window.XMLHttpRequest) xhr = new XMLHttpRequest(); 		// all browsers except IE
+   else xhr = new ActiveXObject("Microsoft.XMLHTTP"); 		// for IE
+
+   xhr.open('GET', 'https://datos.gob.mx/api/buda/v1/adela-resources?title=' + encodeURI("{{ h.resource_display_name(res) }}"), false);
+   xhr.onreadystatechange = function () {
+	     if (xhr.readyState===4 && xhr.status===200) {
+		       var items = JSON.parse(xhr.responseText).results[0];
+		       document.getElementById('accrualPeriodicity').innerHTML = items.accrualPeriodicity;
+           document.getElementById('temporal').innerHTML = items.temporal;
+	     }
+   }
+   xhr.send();
+  </script>
+
 {% block pre_primary %}
   {% block resource %}
     <div id="content" class="col-md-12 no-border details">
@@ -39,10 +55,10 @@
           <blockquote>{{ h.markdown_extract(h.get_translated(c.package, 'notes')) }}</blockquote>
           <p>{% trans dataset=c.package.title, url=h.url_for(controller='package', action='read', id=c.package['name']) %}Source: <a href="{{ url }}">{{ dataset }}</a>{% endtrans %}
         {% endif %}
-        
+
       {% block data_preview %}
       {% block resource_view %}
-      
+
         {% block resource_view_nav %}
           {% set resource_preview = h.resource_preview(c.resource, c.package) %}
           {% snippet "package/snippets/resource_views_list.html",
@@ -146,6 +162,14 @@
                                   {% for key, value in h.format_resource_items(res.items()) %}
                                     <tr class="toggle-more"><th scope="row">{{ key }}</th><td>{{ value }}</td></tr>
                                   {% endfor %}
+                                  <tr>
+                                    <th scope="row">{{ _('Periodo de actualización') }}</th>
+                                    <td id="accrualPeriodicity"></td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">{{ _('Periodo cubierto por los datos') }}</th>
+                                    <td id="temporal"></td>
+                                  </tr>
                                 </tbody>
                               </table>
                             </div>
@@ -155,7 +179,7 @@
                       {% endblock %}
                 </div>
            </div>
-       </div> 
+       </div>
     {% endblock %}
 {% endblock %}
 
