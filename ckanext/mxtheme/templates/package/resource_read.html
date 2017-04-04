@@ -31,7 +31,7 @@
            document.getElementById('temporal').innerHTML = items.temporal;
 	     }
    }
-   xhr.send();
+   $(document).ready( function () { xhr.send(); };
   </script>
 
 {% block pre_primary %}
