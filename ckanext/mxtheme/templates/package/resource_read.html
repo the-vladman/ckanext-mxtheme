@@ -18,22 +18,6 @@
   <li class="active"><a href="">{{ h.resource_display_name(res)|truncate(150) }}</a></li>
 {% endblock %}
 
-  <script> // Para inyectar los campos `accrualPeriodicity` y `temporal`
-   var xhr;
-   if (window.XMLHttpRequest) xhr = new XMLHttpRequest(); 		// all browsers except IE
-   else xhr = new ActiveXObject("Microsoft.XMLHTTP"); 		// for IE
-
-   xhr.open('GET', 'https://datos.gob.mx/api/buda/v1/adela-resources?title=' + encodeURI("{{ h.resource_display_name(res) }}"), false);
-   xhr.onreadystatechange = function () {
-	     if (xhr.readyState===4 && xhr.status===200) {
-		       var items = JSON.parse(xhr.responseText).results[0];
-		       document.getElementById('accrualPeriodicity').innerHTML = items.accrualPeriodicity;
-           document.getElementById('temporal').innerHTML = items.temporal;
-	     }
-   }
-   $(document).ready( function () { xhr.send(); };
-  </script>
-
 {% block pre_primary %}
   {% block resource %}
     <div id="content" class="col-md-12 no-border details">
@@ -117,7 +101,21 @@
           {% endblock %}
        {% endblock %}
        {% endblock %}
+            <script> // Para inyectar los campos `accrualPeriodicity` y `temporal`
+               var xhr;
+               if (window.XMLHttpRequest) xhr = new XMLHttpRequest();     // all browsers except IE
+               else xhr = new ActiveXObject("Microsoft.XMLHTTP");     // for IE
 
+               xhr.open('GET', 'https://datos.gob.mx/api/buda/v1/adela-resources?title=' + encodeURI("{{ h.resource_display_name(res) }}"), false);
+               xhr.onreadystatechange = function () {
+                   if (xhr.readyState===4 && xhr.status===200) {
+                       var items = JSON.parse(xhr.responseText).results[0];
+                       document.getElementById('accrualPeriodicity').innerHTML = items.accrualPeriodicity;
+                       document.getElementById('temporal').innerHTML = items.temporal;
+                   }
+               }
+               $(document).ready( function () { xhr.send(); };
+              </script>
            <div id="additionals" class="row">
                 <div id="sidebar" class="col-md-3">
                     {% block resources_list %}
