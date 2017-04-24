@@ -54,6 +54,15 @@ Example:
     {%- endif -%}
   {%- endif -%}
 {% else %}
-  18,500 Datos en datos.gob.mx
+  <script type="text/javascript">
+    $.ajax("https://api.datos.gob.mx/v1/resources?pageSize=1")
+     .done(function(data){
+       $('.counter-datos').html(data.pagination.total.toLocaleString());
+    })
+     .fail(function(err){
+       console.log(err);
+    });
+  </script>
+  <span class="counter-datos"></span> Datos en datos.gob.mx
 {% endif %}
 
