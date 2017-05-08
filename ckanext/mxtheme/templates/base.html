@@ -122,6 +122,17 @@
     <script src="https://cdn.datos.gob.mx/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="https://cdn.datos.gob.mx/bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="https://cdn.datos.gob.mx/bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $.ajax("https://api.datos.gob.mx/v1/resources?pageSize=1")
+         .done(function(data){
+           $('.counter-datos-ds').html(data.pagination.total.toLocaleString());
+        })
+         .fail(function(err){
+           console.log(err);
+        });
+      });
+    </script>
 {% endblock %}
 
     {% block body_extras -%}
