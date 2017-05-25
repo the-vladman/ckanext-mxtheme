@@ -7555,14 +7555,14 @@ h1:after {
   display: block;
 }
 
-.tooltip {
+.tooltip2 {
     position: relative;
     display: inline-block;
     border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
 }
 
 /* Tooltip text */
-.tooltip .tooltiptext {
+.tooltip2 .tooltiptext {
     visibility: hidden;
     width: 120px;
     background-color: black;
@@ -7577,6 +7577,6 @@ h1:after {
 }
 
 /* Show the tooltip text when you mouse over the tooltip container */
-.tooltip:hover .tooltiptext {
+.tooltip2:hover .tooltiptext {
     visibility: visible;
 }

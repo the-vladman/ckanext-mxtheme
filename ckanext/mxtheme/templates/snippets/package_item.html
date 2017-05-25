@@ -52,7 +52,7 @@ Example:
     <div class="col-md-2 col-md-offset-1">
         {% if package.organization %}
           <p>Instituci&oacute;n</p>
-          <p class="dependency tooltip"><strong><a href="{{h.url_for(package.organization.type ~ '_read', action='read', id=package.organization.name)}}">{{package.organization.name}}</a></strong><span class="tooltiptext">{{package.organization.description}}</span></p>
+          <p class="dependency tooltip2"><strong><a href="{{h.url_for(package.organization.type ~ '_read', action='read', id=package.organization.name)}}">{{package.organization.name}}</a></strong><span class="tooltiptext">{{package.organization.description}}</span></p>
         {% endif %}
         <p>Formato</p>
         {% if package.resources and not hide_resources %}
