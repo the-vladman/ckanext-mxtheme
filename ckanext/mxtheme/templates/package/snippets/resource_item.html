@@ -28,6 +28,12 @@
   <div class="col-md-3">
     <ul class="dropdown-container">
       {% block resource_item_explore_links %}
+      <div class="row">
+        <a href="{{ url }}" class="btn btn-primary">{{ _('More information') }}</a>
+      </div>
+      <div class="row"><a href="{{ res.url }}" class="btn btn-primary">{{ _('Download') }}</a></div>
+      
+      {# 
       <li class="btn btn-primary dropdown">
         <a href="{{ url }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
           Previsualizar<span class="caret"></span></a>
@@ -66,6 +72,7 @@
             {% endif %}
           </ul>
       </li>      
+       #}
       {% endblock %}
     </ul>
   </div>

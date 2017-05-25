@@ -7283,7 +7283,7 @@ h1:after {
 }
 
 .result-item {
-  height: 350px;
+  height: auto;
 }
 .result-item > a {
   display: inline-block;
