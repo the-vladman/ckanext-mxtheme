@@ -7580,3 +7580,4 @@ h1:after {
 .tooltip2:hover .tooltiptext {
     visibility: visible;
 }
+.navbar.dgm-navbar ul.navbar-nav.dgm-navbar > li.dgm-navbar > a.dgm-navbar { font-weight: 300; }
