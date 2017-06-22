@@ -57,7 +57,7 @@ Example:
               <a href="{{h.url_for(package.organization.type ~ '_read', action='read', id=package.organization.name)}}">{{package.organization.name}}
               </a>
             </strong>
-            {% if package.organization.description != '' or package.organization.description != None %}
+            {% if package.organization.description != '' and package.organization.description != None %}
               <span class="tooltiptext">{{package.organization.description}}</span>
             {% endif %}
           </p>

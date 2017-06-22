@@ -26,7 +26,7 @@
         {% endblock %}
         {% block resource_read_url %}
             {% if res.url and h.is_url(res.url) %}
-                <a href="{{ res.url }}" class="btn btn-primary"  style="padding-right: 0px;" title="{{ res.url }}">Descargar</a>
+                <a href="{{ res.url }}" class="btn btn-primary"  style="padding-right: 10px;" title="{{ res.url }}">Descargar</a>
             {% elif res.url %}
                 <p>{{ _('URL:') }} {{ res.url }}</p>
             {% endif %}
@@ -164,7 +164,22 @@
                                   {% for key, value in h.format_resource_items(res.items()) %}
                                     {% if key != 'format' %}
                                       <tr class="toggle-more">
-                                        <th scope="row">{{ _(key) }}</th>
+                                        {# Esto no va a ser necesario cuando tengamos el idioma actualizado #}
+                                        <th scope="row">
+                                          {% if key == 'package id' %}
+                                          Id del Paquete
+                                          {% elif key == 'position' %}
+                                          Poisici&oacute;n
+                                          {% elif key == 'revision id' %}
+                                          Id de Revisi&oacute;n
+                                          {% elif key == 'state' %}
+                                          State
+                                          {% elif key == 'id' %}
+                                          ID
+                                          {% else %}
+                                            {{ _(key) }}
+                                          {% endif %}
+                                        </th>
                                         <td>{{ value }}</td>
                                       </tr>
                                     {% endif %}
