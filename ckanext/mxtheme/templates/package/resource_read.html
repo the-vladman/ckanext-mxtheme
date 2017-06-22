@@ -141,10 +141,12 @@
                                   </tr>
                                 </thead>
                                 <tbody>
+                                  {% if res.last_modified or res.last_modified %}
                                   <tr>
                                     <th scope="row">{{ _('Data last updated') }}</th>
-                                    <td>{{ h.render_datetime(res.last_modified) or h.render_datetime(res.created) or _('unknown') }}</td>
+                                    <td>{{ h.render_datetime(res.last_modified) or h.render_datetime(res.last_modified) or _('unknown') }}</td>
                                   </tr>
+                                  {% endif %}
                                   {% if res.created %}
                                   <tr>
                                     <th scope="row">{{ _('Created') }}</th>
