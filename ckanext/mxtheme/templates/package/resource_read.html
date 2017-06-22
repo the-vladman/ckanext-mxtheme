@@ -142,13 +142,15 @@
                                 </thead>
                                 <tbody>
                                   <tr>
-                                    <th scope="row">{{ _('Last updated') }}</th>
-                                    <td>{{ h.render_datetime(res.last_modified) or h.render_datetime(res.revision_timestamp) or h.render_datetime(res.created) or _('unknown') }}</td>
+                                    <th scope="row">{{ _('Data last updated') }}</th>
+                                    <td>{{ h.render_datetime(res.last_modified) or h.render_datetime(res.created) or _('unknown') }}</td>
                                   </tr>
+                                  {% if res.created %}
                                   <tr>
                                     <th scope="row">{{ _('Created') }}</th>
                                     <td>{{ h.render_datetime(res.created) or _('unknown') }}</td>
                                   </tr>
+                                  {% endif %}
                                   <tr>
                                     <th scope="row">{{ _('Format') }}</th>
                                     <td>{{ res.mimetype_inner or res.mimetype or res.format or _('unknown') }}</td>
