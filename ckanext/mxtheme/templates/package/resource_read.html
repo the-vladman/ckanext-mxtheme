@@ -26,7 +26,7 @@
         {% endblock %}
         {% block resource_read_url %}
             {% if res.url and h.is_url(res.url) %}
-                <a href="{{ res.url }}" class="btn btn-primary" title="{{ res.url }}">Descargar</a>
+                <a href="{{ res.url }}" class="btn btn-primary"  style="padding-right: 0px;" title="{{ res.url }}">Descargar</a>
             {% elif res.url %}
                 <p>{{ _('URL:') }} {{ res.url }}</p>
             {% endif %}
