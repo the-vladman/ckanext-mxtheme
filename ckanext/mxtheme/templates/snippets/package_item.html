@@ -58,7 +58,7 @@ Example:
               </a>
             </strong>
             {% if package.organization.description != '' and package.organization.description != None %}
-              <span class="tooltiptext">{{package.organization.description}}</span>
+              <span class="tooltiptext">{{h.truncate(package.organization.description, 45)}}</span>
             {% endif %}
           </p>
         {% endif %}
