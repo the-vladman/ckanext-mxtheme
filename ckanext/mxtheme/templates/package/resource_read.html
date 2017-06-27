@@ -174,13 +174,15 @@
                                           Id de Revisi&oacute;n
                                           {% elif key == 'state' %}
                                           Estado
+                                          {% elif key == 'has views' %}
+                                          Visitas
                                           {% elif key == 'id' %}
                                           ID
                                           {% else %}
                                             {{ _(key) }}
                                           {% endif %}
                                         </th>
-                                        <td>{{ value }}</td>
+                                        <td>{% if key == 'state' %}{{ _(value) }}{% else %}{{ value }}{% endif %}</td>
                                       </tr>
                                     {% endif %}
                                   {% endfor %}
