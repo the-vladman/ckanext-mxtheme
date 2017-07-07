@@ -21,7 +21,7 @@
 {% block extra_js %}
   <script type="text/javascript">
     function registerDownload(event){
-      ga('send', { 'hitType': 'pageview', 'page': '/busca/organization/{{h.slugify_text(c.organization.name)}}/dataset/{{h.slugify_text(c.package.name)}}/resource/{{ h.slugify_text(h.resource_display_name(res)) }}/download', 'title': 'Download: {{ h.resource_display_name(res) | truncate(150) }}' });
+      ga('send', { 'hitType': 'pageview', 'page': '/busca/organization/{{h.slugify_text(c.package.organization.name)}}/dataset/{{h.slugify_text(c.package.name)}}/resource/{{ h.slugify_text(h.resource_display_name(res)) }}/download', 'title': 'Download: {{ h.resource_display_name(res) | truncate(150) }}' });
       return true;
     }
   </script>
