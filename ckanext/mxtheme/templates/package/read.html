@@ -23,7 +23,7 @@
 {% block extra_js %}
   <script type="text/javascript">
     function registerDownload(event){
-      ga('send', { 'hitType': 'pageview', 'page': '/busca/organization/{{h.slugify_text(pkg.organization.name)}}/dataset/{{h.slugify_text(pkg.name)}}/resource/'+ $(event.currentTarget).attr('data-slug') + '/download', 'title': 'Download: ' + $(event.currentTarget).attr('data-name') });
+      ga('send', { 'hitType': 'pageview', 'page': '/busca/organization/{{h.slugify_text(pkg.organization.name)}}/dataset/{{h.slugify_text(pkg.name)}}/resource/'+ $(event).attr('data-slug') + '/download', 'title': 'Download: ' + $(event).attr('data-name') });
       return true;
     }
   </script>
