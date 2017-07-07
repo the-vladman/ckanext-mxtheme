@@ -156,7 +156,10 @@ def url_for(*args, **kw):
     return _add_i18n_to_url(my_url, locale=locale, **kw)
 
 def slugify_name(text):
-    return slugify(text)
+    if text is not None:
+        return slugify(text.encode('utf-8'))
+    else:
+        return text
 
 class MxthemePlugin(plugins.SingletonPlugin):
     # IConfigurer
