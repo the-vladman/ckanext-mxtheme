@@ -49,7 +49,7 @@ within_tertiary
       {% block facet_list_item %}
         <!-- Open Facets -->
           {% block facet_list_heading %}
-            <a href="#item-{{h.slugify_name(title)}}" class="module-heading list-group-item" data-toggle="collapse">
+            <a href="#item-{{h.slugify_text(title)}}" class="module-heading list-group-item" data-toggle="collapse">
               {% set title = title or h.get_facet_title(name) %}
               <i class="glyphicon glyphicon-chevron-right"></i>{{ title }}
             </a>
@@ -58,7 +58,7 @@ within_tertiary
             {% with items = items or h.get_facet_items_dict(name) %}
             {% if items %}
               
-                <ul class="filters-menu list-group collapse" id="item-{{h.slugify_name(title)}}">
+                <ul class="filters-menu list-group collapse" id="item-{{h.slugify_text(title)}}">
                   {% for item in items %}
                     {% set href = h.remove_url_param(name, item.name, extras=extras, alternative_url=alternative_url) if item.active else h.add_url_param(new_params={name: item.name}, extras=extras, alternative_url=alternative_url) %}
                     {% set label = label_function(item) if label_function else item.display_name %}
