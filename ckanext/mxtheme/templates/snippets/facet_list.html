@@ -64,11 +64,14 @@ within_tertiary
                     {% set label = label_function(item) if label_function else item.display_name %}
                     {% set label_truncated = h.truncate(label, 22) if not label_function else label %}
                     {% set count = count_label(item['count']) if count_label else ('(%d)' % item['count']) %}
-                      <li class="{% if item.active %} active{% endif %} list-group-item ckan-group-item">
-                        <a href="{{ href }}" title="{{ label if label != label_truncated else '' }}">
-                          {{ label_truncated }} {{ count }}
-                        </a>
-                      </li>
+                      <div class="list-group-item ckan-group-item">
+                        <li class="{% if item.active %} active{% endif %} list-group-item ckan-group-item">
+                          <a href="{{ href }}" title="{{ label if label != label_truncated else '' }}">
+                            {{ label_truncated }} {{ count }}
+                          </a>
+                        </li>
+                        
+                      </div>
                   {% endfor %}
                 </ul>
 
