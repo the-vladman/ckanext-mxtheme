@@ -195,8 +195,9 @@
         });
       });
     </script>
-
-{% endblock %}
+    {% block extra_js %}
+    {% endblock %}
+    {% endblock %}
 
     {% block body_extras -%}
       {# defined in the config.ini under "ckan.template_footer_end" #}

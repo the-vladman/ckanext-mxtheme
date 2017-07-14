@@ -3,6 +3,7 @@ import datetime
 import logging
 import urlparse
 import i18n
+from slugify import slugify
 import ckan.exceptions
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
@@ -154,6 +155,11 @@ def url_for(*args, **kw):
     kw['__ckan_no_root'] = no_root
     return _add_i18n_to_url(my_url, locale=locale, **kw)
 
+def slugify_name(text):
+    if text is not None:
+        return slugify(text.encode('utf-8'))
+    else:
+        return text
 
 class MxthemePlugin(plugins.SingletonPlugin):
     # IConfigurer
@@ -166,5 +172,5 @@ class MxthemePlugin(plugins.SingletonPlugin):
         toolkit.add_resource('fanstatic', 'mxtheme')
 
     def get_helpers(self):
-        return {'format_display_date': format_display_date, 'is_regular_format': is_regular_format, 'url_for': url_for, 'url': url, '_add_i18n_to_url': _add_i18n_to_url}
+        return {'format_display_date': format_display_date, 'is_regular_format': is_regular_format, 'url_for': url_for, 'url': url, '_add_i18n_to_url': _add_i18n_to_url, 'slugify_text': slugify_name}
         #return {'format_display_date': format_display_date, 'is_regular_format': is_regular_format}

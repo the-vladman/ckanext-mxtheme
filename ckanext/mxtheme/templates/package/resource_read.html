@@ -18,6 +18,15 @@
   <li class="active"><a href="">{{ h.resource_display_name(res)|truncate(40) }}</a></li>
 {% endblock %}
 
+{% block extra_js %}
+  <script type="text/javascript">
+    function registerDownload(event){
+      ga('send', { 'hitType': 'pageview', 'page': '/busca/organization/{{h.slugify_text(c.package.organization.name)}}/dataset/{{h.slugify_text(c.package.name)}}/resource/{{ h.slugify_text(h.resource_display_name(res)) }}/download', 'title': 'Download: {{ h.resource_display_name(res) | truncate(150) }}' });
+      return true;
+    }
+  </script>
+{% endblock %}
+
 {% block pre_primary %}
   {% block resource %}
     <div id="content" class="col-md-12 no-border details">
@@ -26,7 +35,7 @@
         {% endblock %}
         {% block resource_read_url %}
             {% if res.url and h.is_url(res.url) %}
-                <a href="{{ res.url }}" class="btn btn-primary"  style="padding-right: 10px;" title="{{ res.url }}">Descargar</a>
+                <a href="{{ res.url }}" class="btn btn-primary" onclick="registerDownload('')" style="padding-right: 10px;" title="{{ res.url }}">Descargar</a>
             {% elif res.url %}
                 <p>{{ _('URL:') }} {{ res.url }}</p>
             {% endif %}
