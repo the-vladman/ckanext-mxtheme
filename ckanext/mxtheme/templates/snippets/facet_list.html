@@ -49,22 +49,22 @@ within_tertiary
       {% block facet_list_item %}
         <!-- Open Facets -->
           {% block facet_list_heading %}
-            <h4 class="module-heading">
+            <a href="#item-{{h.slugify_name(title)}}" class="module-heading list-group-item" data-toggle="collapse">
               {% set title = title or h.get_facet_title(name) %}
-              {{ title }}
-            </h4>
+              <i class="glyphicon glyphicon-chevron-right"></i>{{ title }}
+            </a>
           {% endblock %}
           {% block facet_list_items %}
             {% with items = items or h.get_facet_items_dict(name) %}
             {% if items %}
               
-                <ul class="filters-menu">
+                <ul class="filters-menu list-group collapse" id="item-{{h.slugify_name(title)}}">
                   {% for item in items %}
                     {% set href = h.remove_url_param(name, item.name, extras=extras, alternative_url=alternative_url) if item.active else h.add_url_param(new_params={name: item.name}, extras=extras, alternative_url=alternative_url) %}
                     {% set label = label_function(item) if label_function else item.display_name %}
                     {% set label_truncated = h.truncate(label, 22) if not label_function else label %}
                     {% set count = count_label(item['count']) if count_label else ('(%d)' % item['count']) %}
-                      <li class="{% if item.active %} active{% endif %}">
+                      <li class="{% if item.active %} active{% endif %} list-group-item">
                         <a href="{{ href }}" title="{{ label if label != label_truncated else '' }}">
                           {{ label_truncated }} {{ count }}
                         </a>
