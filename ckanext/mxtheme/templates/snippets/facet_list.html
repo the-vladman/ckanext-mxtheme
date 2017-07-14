@@ -58,22 +58,22 @@ within_tertiary
             {% with items = items or h.get_facet_items_dict(name) %}
             {% if items %}
               
-                <ul class="filters-menu list-group collapse" id="item-{{h.slugify_text(title)}}">
+                <div class="list-group collapse" id="item-{{h.slugify_text(title)}}">
+                <ul class="filters-menu">
                   {% for item in items %}
                     {% set href = h.remove_url_param(name, item.name, extras=extras, alternative_url=alternative_url) if item.active else h.add_url_param(new_params={name: item.name}, extras=extras, alternative_url=alternative_url) %}
                     {% set label = label_function(item) if label_function else item.display_name %}
                     {% set label_truncated = h.truncate(label, 22) if not label_function else label %}
                     {% set count = count_label(item['count']) if count_label else ('(%d)' % item['count']) %}
-                      <div class="list-group-item ckan-group-item">
                         <li class="{% if item.active %} active{% endif %} list-group-item ckan-group-item">
                           <a href="{{ href }}" title="{{ label if label != label_truncated else '' }}">
                             {{ label_truncated }} {{ count }}
                           </a>
                         </li>
                         
-                      </div>
                   {% endfor %}
                 </ul>
+                </div>
 
               <p class="module-footer">
                 {% if h.get_param_int('_%s_limit' % name) %}
