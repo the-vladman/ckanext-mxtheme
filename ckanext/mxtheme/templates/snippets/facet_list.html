@@ -50,14 +50,10 @@ within_tertiary
         <!-- Open Facets -->
           {% block facet_list_heading %}
             {% set title = title or h.get_facet_title(name) %}
-            {% with items = items or h.get_facet_items_dict(name) %}
             <a href="#item-{{ h.slugify_text(h.get_facet_title(name)) }}" class="module-heading list-group-item ckan-group-item ckan-header-group" data-toggle="collapse">
               {{ title }}
-              {% if items %}
                 <i class="glyphicon glyphicon-chevron-down" style="float: right"></i>
-              {% endif %}
             </a>
-            {% endwith %}
           {% endblock %}
           {% block facet_list_items %}
             {% with items = items or h.get_facet_items_dict(name) %}
@@ -105,9 +101,11 @@ within_tertiary
               <p class="module-content empty">{{ _('There are no {facet_type} that match this search').format(facet_type=title) }}</p>
               #}
             {% else %}
-              <ul class="filters-menu">
-                <li class="list-group-item ckan-group-item">{{ _('There are no {facet_type} that match this search').format(facet_type=title) }}</li>
-              </ul>
+              <div class="list-group collapse" id="item-{{h.slugify_text(h.get_facet_title(name))}}">
+                <ul class="filters-menu">
+                  <li class="list-group-item ckan-group-item">{{ _('There are no {facet_type} that match this search').format(facet_type=title) }}</li>
+                </ul>
+              </div>
             {% endif %}
             {% endwith %}
           {% endblock %}
