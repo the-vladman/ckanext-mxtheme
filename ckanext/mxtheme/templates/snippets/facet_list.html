@@ -76,6 +76,7 @@ within_tertiary
                 </ul>
                 </div>
 
+              {#
               <p class="module-footer">
                 {% if h.get_param_int('_%s_limit' % name) %}
                   {% if h.has_more_facets(name) %}
@@ -87,6 +88,7 @@ within_tertiary
               </p>
             {% else %}
               <p class="module-content empty">{{ _('There are no {facet_type} that match this search').format(facet_type=title) }}</p>
+              #}
             {% endif %}
             {% endwith %}
           {% endblock %}
