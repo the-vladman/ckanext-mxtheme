@@ -50,10 +50,13 @@ within_tertiary
         <!-- Open Facets -->
           {% block facet_list_heading %}
             {% set title = title or h.get_facet_title(name) %}
+            {% with items = items or h.get_facet_items_dict(name) %}
+            {% if items %}
             <a href="#item-{{ h.slugify_text(h.get_facet_title(name)) }}" class="module-heading list-group-item ckan-group-item ckan-header-group" data-toggle="collapse">
               {{ title }}
-              <i class="glyphicon glyphicon-chevron-down" style="float: right"></i>
+                <i class="glyphicon glyphicon-chevron-down" style="float: right"></i>
             </a>
+            {% endif %}
           {% endblock %}
           {% block facet_list_items %}
             {% with items = items or h.get_facet_items_dict(name) %}
@@ -71,12 +74,23 @@ within_tertiary
                             {{ label_truncated }} {{ count }}
                           </a>
                         </li>
-                        
                   {% endfor %}
+
+                  {% if h.get_param_int('_%s_limit' % name) %}
+                    {% if h.has_more_facets(name) %}
+                      <li class="list-group-item ckan-group-item">
+                        <a href="{{ h.remove_url_param('_%s_limit' % name, replace=0, extras=extras, alternative_url=alternative_url) }}" class="read-more"><strong>{{ _('Show More {facet_type}').format(facet_type=title) }}</strong></a>
+                      </li>
+                    {% endif %}
+                  {% else %}
+                    <li class="list-group-item ckan-group-item">
+                      <a href="{{ h.remove_url_param('_%s_limit' % name, extras=extras, alternative_url=alternative_url) }}" class="read-more">{{ _('Show Only Popular {facet_type}').format(facet_type=title) }}</a>
+                    </li>
+                  {% endif %}
                 </ul>
                 </div>
 
-              {#
+            {#
               <p class="module-footer">
                 {% if h.get_param_int('_%s_limit' % name) %}
                   {% if h.has_more_facets(name) %}
@@ -89,6 +103,10 @@ within_tertiary
             {% else %}
               <p class="module-content empty">{{ _('There are no {facet_type} that match this search').format(facet_type=title) }}</p>
               #}
+            {% else %}
+              <ul class="filters-menu">
+                <li class="list-group-item ckan-group-item">{{ _('There are no {facet_type} that match this search').format(facet_type=title) }}</li>
+              </ul>
             {% endif %}
             {% endwith %}
           {% endblock %}
