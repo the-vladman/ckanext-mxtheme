@@ -51,12 +51,12 @@ within_tertiary
           {% block facet_list_heading %}
             {% set title = title or h.get_facet_title(name) %}
             {% with items = items or h.get_facet_items_dict(name) %}
-            {% if items %}
             <a href="#item-{{ h.slugify_text(h.get_facet_title(name)) }}" class="module-heading list-group-item ckan-group-item ckan-header-group" data-toggle="collapse">
               {{ title }}
+              {% if items %}
                 <i class="glyphicon glyphicon-chevron-down" style="float: right"></i>
+              {% endif %}
             </a>
-            {% endif %}
             {% endwith %}
           {% endblock %}
           {% block facet_list_items %}
