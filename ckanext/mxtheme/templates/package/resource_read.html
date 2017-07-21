@@ -150,12 +150,10 @@
                                   </tr>
                                 </thead>
                                 <tbody>
-                                  {% if res.last_modified %}
                                   <tr>
                                     <th scope="row">{{ _('Data last updated') }}</th>
-                                    <td>{{ h.render_datetime(res.last_modified) }}</td>
+                                    <td>{{ h.render_datetime(res.last_modified) or h.render_datetime(res.created)}}</td>
                                   </tr>
-                                  {% endif %}
                                   {% if res.created %}
                                   <tr>
                                     <th scope="row">{{ _('Created') }}</th>
@@ -191,7 +189,16 @@
                                             {{ _(key) }}
                                           {% endif %}
                                         </th>
-                                        <td>{% if key == 'state' %}{{ _(value) }}{% else %}{{ value }}{% endif %}</td>
+                                        <td>
+                                          {% if key == 'state' %}
+                                            {% if value == 'active' or 'Active' %}
+                                              Activo
+                                            {% endif %}
+                                            {{ _(value) }}
+                                          {% else %}
+                                            {{ value }}
+                                          {% endif %}
+                                          </td>
                                       </tr>
                                     {% endif %}
                                   {% endfor %}
