@@ -157,7 +157,7 @@
                                         {{ h.render_datetime(res.last_modified) or h.render_datetime(res.revision_timestamp) or h.render_datetime(res.created)}}
                                       {% else %}
                                         {% for key, value in h.format_resource_items(res.items()) %}
-                                          {% if key == 'Created' or key == 'created' %}
+                                          {% if key == 'Creado' or key == 'created' or 'Created' %}
                                             {{ _(value) }}
                                           {% endif %}
                                         {% endfor %}
@@ -197,7 +197,6 @@
                                           ID
                                           {% else %}
                                             {{ _(key) }}
-                                            {{ key }}
                                           {% endif %}
                                         </th>
                                         <td>
