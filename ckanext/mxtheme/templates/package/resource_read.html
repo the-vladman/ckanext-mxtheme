@@ -158,7 +158,7 @@
                                       {% else %}
                                         {% for key, value in h.format_resource_items(res.items()) %}
                                           {% if key == 'Created' or key == 'created' %}
-                                            {{value}}
+                                            {{ _(value) }}
                                           {% endif %}
                                         {% endfor %}
                                       {% endif %}
@@ -197,6 +197,7 @@
                                           ID
                                           {% else %}
                                             {{ _(key) }}
+                                            {{ key }}
                                           {% endif %}
                                         </th>
                                         <td>
