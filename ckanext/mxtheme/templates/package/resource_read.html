@@ -195,6 +195,12 @@
                                           Visitas
                                           {% elif key == 'id' %}
                                           ID
+                                          {% elif key == 'datastore active' %}
+                                          DataStore Activo
+                                          {% elif key == 'last modified' %}
+                                          Ultima Modificación
+                                          {% elif key == 'resource group id' %}
+                                          Id del Grupo de Recursos
                                           {% else %}
                                             {{ _(key) }}
                                           {% endif %}
