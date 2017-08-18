@@ -62,7 +62,7 @@ within_tertiary
           </div>
          
           {% block facet_list_items %}
-            <div class="panel-collapse collapse" id="panel-01">
+            <div class="panel-collapse collapse" id="{{ h.slugify_text(h.get_facet_title(name)) }}">
               <div class="panel-body">
                 {% with items = items or h.get_facet_items_dict(name) %}
                   {% if items %}

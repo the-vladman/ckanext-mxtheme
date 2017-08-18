@@ -7582,6 +7582,19 @@ h1:after {
 }
 .navbar.dgm-navbar ul.navbar-nav.dgm-navbar > li.dgm-navbar > a.dgm-navbar { font-weight: 300; }
 
+#filter-by .panel-heading .collpase-button {
+  border: 0;
+  outline: 0;
+  background: 0 0;
+  display: block;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  margin-top: -15px;
+}
+
 #filter-by h3 {
   font-size: 14px;
   font-weight: 700;
