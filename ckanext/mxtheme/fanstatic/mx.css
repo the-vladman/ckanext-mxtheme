@@ -5659,6 +5659,7 @@ button.list-group-item-danger.active:focus {
   color: #333333;
   background-color: #f5f5f5;
   border-color: #ddd;
+  padding: 0;
 }
 .panel-default > .panel-heading + .panel-collapse > .panel-body {
   border-top-color: #ddd;
@@ -7582,6 +7583,36 @@ h1:after {
 }
 .navbar.dgm-navbar ul.navbar-nav.dgm-navbar > li.dgm-navbar > a.dgm-navbar { font-weight: 300; }
 
+
+/* Arreglos para menu collapse */
+.chevron::before {
+  content: '';
+  display: inline-block;
+  position: relative;
+  height: 1em;
+  left: 0.1em;
+  top: 3px;
+  border-style: solid;
+  border-width: 0.12em 0.12em 0 0;
+  transform: rotate(-45deg);
+  vertical-align: top;
+  width: 1em;
+}
+.chevron.right:before {
+  top: 3px;
+  left: 0;
+  transform: rotate(45deg);
+}
+.chevron.bottom:before {
+  top: 0;
+  transform: rotate(135deg);
+}
+.chevron.left:before {
+  top: 3px;
+  left: 0.25em;
+  transform: rotate(-135deg);
+}
+
 #filter-by .panel-heading .collpase-button {
   border: 0;
   outline: 0;
@@ -7593,6 +7624,13 @@ h1:after {
   right: 15px;
   top: 50%;
   margin-top: -15px;
+}
+
+#filter-by .panel-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 16px;
+    color: inherit;
 }
 
 #filter-by h3 {
@@ -7614,10 +7652,20 @@ h1:after {
 #filter-by .panel:last-child {
   border-bottom: 1px solid #d8d8d8;
 }
+#filter-by .panel .panel-heading{
+  border-bottom: none !important;
+  border-top: none !important;
+}
+
+#filter-by .panel .panel-heading > h4 {
+  border-bottom: none !important;
+  border-top: none !important; 
+}
 #filter-by .panel .panel-heading > h4 > a {
   font-size: 14px;
   font-weight: 400;
   padding: 15px 10px;
+
 }
 #filter-by .panel .panel-heading .collpase-button {
   right: 5px;
