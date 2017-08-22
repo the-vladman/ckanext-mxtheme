@@ -7581,3 +7581,16 @@ h1:after {
     visibility: visible;
 }
 .navbar.dgm-navbar ul.navbar-nav.dgm-navbar > li.dgm-navbar > a.dgm-navbar { font-weight: 300; }
+
+
+/* Cambios para el ancho de los breadcrumbs */
+.submenu.recortado {
+  margin-right: 0px !important;
+  padding-right: 0px !important;
+  margin-left: 0px !important;
+  padding-left: 0px !important;
+  float: unset !important;
+}
+.submenu.recortado li {
+  margin-right: 15px !important;
+}
