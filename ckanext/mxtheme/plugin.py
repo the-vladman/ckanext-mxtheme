@@ -8,12 +8,12 @@ import ckan.exceptions
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 from ckan.common import request
-#from ckan.lib.helpers import _add_i18n_to_url
 from pylons import config
 from routes import url_for as _routes_default_url_for
 
 
 log = logging.getLogger(__name__)
+
 
 def format_display_date(time_stamp, format_date="%Y/%m/%d"):
     date_object = datetime.datetime.strptime(time_stamp, "%Y-%m-%dT%H:%M:%S.%f")
@@ -155,13 +155,20 @@ def url_for(*args, **kw):
     kw['__ckan_no_root'] = no_root
     return _add_i18n_to_url(my_url, locale=locale, **kw)
 
+
 def slugify_name(text):
-    if text is not None:
-        return slugify(text.encode('utf-8'))
-    else:
-        return text
+    """
+    Slugifica cualquier texto
+    """
+
+    return slugify(text.encode('utf-8')) if text is not None else text
+
 
 class MxthemePlugin(plugins.SingletonPlugin):
+    """
+    Tema para branding de datos.gob.mx
+    en CKAN
+    """
     # IConfigurer
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.ITemplateHelpers)
@@ -172,5 +179,22 @@ class MxthemePlugin(plugins.SingletonPlugin):
         toolkit.add_resource('fanstatic', 'mxtheme')
 
     def get_helpers(self):
-        return {'format_display_date': format_display_date, 'is_regular_format': is_regular_format, 'url_for': url_for, 'url': url, '_add_i18n_to_url': _add_i18n_to_url, 'slugify_text': slugify_name}
-        #return {'format_display_date': format_display_date, 'is_regular_format': is_regular_format}
+        """
+        Helpers necesarios para el template
+
+        Monkey patching de las funciones:
+             - format_display_date
+             - is_regular_format
+             - url_for
+             - url
+             - _add_i18n_to_url
+        """
+
+        return {
+            'format_display_date': format_display_date,
+            'is_regular_format': is_regular_format,
+            'url_for': url_for,
+            'url': url,
+            '_add_i18n_to_url': _add_i18n_to_url,
+            'slugify_text': slugify_name
+        }
