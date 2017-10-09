@@ -115,15 +115,15 @@
                if (window.XMLHttpRequest) xhr = new XMLHttpRequest();     // all browsers except IE
                else xhr = new ActiveXObject("Microsoft.XMLHTTP");     // for IE
 
-               xhr.open('GET', '{{h.get_adela_endpoint()}}?title=' + encodeURI("{{ h.resource_display_name(res) }}"), false);
+               xhr.open('GET', '{{h.get_adela_endpoint()}}/{{h.slugify_text(h.resource_display_name(res))}}', false);
                xhr.onreadystatechange = function () {
                    if (xhr.readyState===4 && xhr.status===200) {
-                       var items = JSON.parse(xhr.responseText).results[0];
-                       document.getElementById('accrualPeriodicity').innerHTML = items.accrualPeriodicity;
-                       document.getElementById('temporal').innerHTML = items.temporal;
-                       document.getElementById('codelist').innerHTML = items.codelist;
-                       document.getElementById('codelist_link').innerHTML = items.codelist_link;
-                       document.getElementById('visualization').innerHTML = items.visualization;
+                      var items = JSON.parse(xhr.responseText).distribution;
+                      document.getElementById('accrualPeriodicity').innerHTML = (items.accrualPeriodicity !== null ? items.accrualPeriodicity : '');
+                      document.getElementById('temporal').innerHTML = (items.temporal !== null ? items.temporal : '');
+                      document.getElementById('codelist').innerHTML = (items.codelist !== null ? items.codelist : '');
+                      document.getElementById('codelist_link').innerHTML = (items.codelist_link !== null ? items.codelist_link : '');
+                      document.getElementById('visualization').innerHTML = (items.visualization !== null ? items.visualization : ''); 
                    }
                }
                $(document).ready( function () { xhr.send(); });
