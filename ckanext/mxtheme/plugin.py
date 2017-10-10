@@ -166,7 +166,8 @@ def slugify_name(text):
 
 def get_adela_endpoint():
     adela_endpoint = config.get(
-        'mxtheme.adela_api_endopint', 'http://adela.datos.gob.mx/api/v1/distributions'
+        # 'mxtheme.adela_api_endopint', 'http://adela.datos.gob.mx/api/v1/distributions'
+        'mxtheme.adela_api_endopint', 'http://10.20.55.7/adela/api/v1/distributions'
     )
 
     return adela_endpoint

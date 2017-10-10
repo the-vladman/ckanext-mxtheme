@@ -123,7 +123,8 @@
                       document.getElementById('temporal').innerHTML = (items.temporal !== null ? items.temporal : '');
                       document.getElementById('codelist').innerHTML = (items.codelist !== null ? items.codelist : '');
                       document.getElementById('codelist_link').innerHTML = (items.codelist_link !== null ? items.codelist_link : '');
-                      document.getElementById('visualization').innerHTML = (items.visualization !== null ? items.visualization : ''); 
+                      document.getElementById('visualization').innerHTML = (items.tools !== null ? items.tools : '');
+                      document.getElementById('format').innerHTML = (items.format !== null ? items.format : '');
                    }
                }
                $(document).ready( function () { xhr.send(); });
@@ -219,7 +220,11 @@
                                           </td>
                                       </tr>
                                     {% endif %}
-                                  {% endfor %}
+                                    {% endfor %}
+                                  <tr>
+                                    <th scope="row">{{ _('Formato') }}</th>
+                                    <td id="format"></td>
+                                  </tr>
                                   <tr>
                                     <th scope="row">{{ _('Periodo de actualización') }}</th>
                                     <td id="accrualPeriodicity"></td>
