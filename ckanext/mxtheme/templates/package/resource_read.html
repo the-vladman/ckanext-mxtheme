@@ -115,12 +115,16 @@
                if (window.XMLHttpRequest) xhr = new XMLHttpRequest();     // all browsers except IE
                else xhr = new ActiveXObject("Microsoft.XMLHTTP");     // for IE
 
-               xhr.open('GET', 'https://datos.gob.mx/api/buda/v1/adela-resources?title=' + encodeURI("{{ h.resource_display_name(res) }}"), false);
+               xhr.open('GET', '{{h.get_adela_endpoint()}}/{{h.slugify_text(h.resource_display_name(res))}}', false);
                xhr.onreadystatechange = function () {
                    if (xhr.readyState===4 && xhr.status===200) {
-                       var items = JSON.parse(xhr.responseText).results[0];
-                       document.getElementById('accrualPeriodicity').innerHTML = items.accrualPeriodicity;
-                       document.getElementById('temporal').innerHTML = items.temporal;
+                      var items = JSON.parse(xhr.responseText).distribution;
+                      document.getElementById('accrualPeriodicity').innerHTML = (items.accrualPeriodicity !== null ? items.accrualPeriodicity : '');
+                      document.getElementById('temporal').innerHTML = (items.temporal !== null ? items.temporal : '');
+                      document.getElementById('codelist').innerHTML = (items.codelist !== null ? items.codelist : '');
+                      document.getElementById('codelist_link').innerHTML = (items.codelist_link !== null ? items.codelist_link : '');
+                      document.getElementById('visualization').innerHTML = (items.tools !== null ? items.tools : '');
+                      document.getElementById('format').innerHTML = (items.format !== null ? items.format : '');
                    }
                }
                $(document).ready( function () { xhr.send(); });
@@ -216,7 +220,11 @@
                                           </td>
                                       </tr>
                                     {% endif %}
-                                  {% endfor %}
+                                    {% endfor %}
+                                  <tr>
+                                    <th scope="row">{{ _('Formato') }}</th>
+                                    <td id="format"></td>
+                                  </tr>
                                   <tr>
                                     <th scope="row">{{ _('Periodo de actualización') }}</th>
                                     <td id="accrualPeriodicity"></td>
@@ -225,6 +233,19 @@
                                     <th scope="row">{{ _('Periodo cubierto por los datos') }}</th>
                                     <td id="temporal"></td>
                                   </tr>
+                                  <tr>
+                                    <th scope="row">{{ _('Codelist') }}</th>
+                                    <td id="codelist"></td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">{{ _('Codelist Link') }}</th>
+                                    <td id="codelist_link"></td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">{{ _('Herramienta de visualización') }}</th>
+                                    <td id="visualization"></td>
+                                  </tr>
+
                                 </tbody>
                               </table>
                             </div>

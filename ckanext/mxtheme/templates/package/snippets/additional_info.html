@@ -68,12 +68,24 @@
         {% for extra in h.sorted_extras(pkg_dict.extras) %}
           {% set key, value = extra %}
           <tr rel="dc:relation" resource="_:extra{{ i }}">
-            <td scope="row" class="dataset-label" property="rdfs:label">{{ _(key) }}</td>
+            <td scope="row" class="dataset-label" property="rdfs:label">
+              {% if key == 'dataDictionary' %}
+                Diccionario de Datos
+              {% elif key == 'quality' %}
+                Calidad de Datos
+              {% elif key == 'spatial_text' %}
+                Espacio geogr&aacute;fico
+              {% else %}
+                {{ _(key) }}
+              {% endif %}
+            </td>
             <td class="dataset-details" property="rdf:value">
               {% if key == 'state' or key == 'State' or _(key) == 'Estado' %}
                 {% if value == 'active' or 'Active' %}
                   Activo
                 {% endif %}
+              {% elif key == 'dataDictionary' or key == 'quality' %}
+                <a href="{{value}}">{{value}}</a>
               {% else %}
                 {{ value }}
               {% endif %}
