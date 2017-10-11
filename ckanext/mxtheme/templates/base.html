@@ -185,16 +185,16 @@
     <script type="text/javascript">
       $(document).ready(function(){
         $.ajax("https://api.datos.gob.mx/v1/resources?pageSize=1")
-         .done(function(data){
-           $('.counter-datos-ds').html(data.pagination.total.toLocaleString());
+        .done(function(data){
+          $('.counter-datos-ds').html(data.pagination.total.toLocaleString());
         })
-         .fail(function(err){
-           console.log(err);
+        .fail(function(err){
+          console.log(err);
         });
       });
     </script>
-    {% block extra_js %}
-    {% endblock %}
+      {% block extra_js %}
+      {% endblock %}
     {% endblock %}
 
     {% block body_extras -%}
