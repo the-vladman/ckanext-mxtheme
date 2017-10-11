@@ -120,14 +120,20 @@
                xhr.onreadystatechange = function () {
                    if (xhr.readyState===4 && xhr.status===200) {
                       var items = JSON.parse(xhr.responseText).distribution;
-                      document.getElementById('accrualPeriodicity').innerHTML = (items.dataset.accrualPeriodicity !== null ? items.dataset.accrualPeriodicity : '');
-                      document.getElementById('temporal').innerHTML = (items.temporal !== null ? items.temporal : '');
-                      document.getElementById('codelist').innerHTML = (items.codelist !== null ? items.codelist : '');
-                      document.getElementById('codelist_link').innerHTML = (items.codelistLink !== null ? items.codelistLink : '');
-                      document.getElementById('visualization').innerHTML = (items.tools !== null ? items.tools : '');
-                      document.getElementById('format').innerHTML = (items.format !== null ? items.format : '');
+
+                      if(items.dataset !== null){
+                        document.getElementById('accrualPeriodicity').innerHTML = (items.dataset.accrualPeriodicity !== null || items.dataset.accrualPeriodicity !== undefined ? items.dataset.accrualPeriodicity : '');
+                      } else {
+                        document.getElementById('accrualPeriodicity').innerHTML = '';
+                      }
+
+                      document.getElementById('temporal').innerHTML = (items.temporal !== null || items.temporal !== undefined ? items.temporal : '');
+                      document.getElementById('codelist').innerHTML = (items.codelist !== null || items.codelist !== undefined ? items.codelist : '');
+                      document.getElementById('codelist_link').innerHTML = (items.codelistLink !== null || items.codelistLink !== undefined ? items.codelistLink : '');
+                      document.getElementById('visualization').innerHTML = (items.tools !== null || items.tools !== undefined ? items.tools : '');
                    }
                }
+
                $(document).ready( function () { xhr.send(); });
               </script>
            <div id="additionals" class="row">
@@ -222,10 +228,7 @@
                                       </tr>
                                     {% endif %}
                                     {% endfor %}
-                                  <tr>
-                                    <th scope="row">{{ _('Formato') }}</th>
-                                    <td id="format"></td>
-                                  </tr>
+
                                   <tr>
                                     <th scope="row">{{ _('Periodo de actualización') }}</th>
                                     <td id="accrualPeriodicity"></td>
