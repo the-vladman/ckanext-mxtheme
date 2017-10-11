@@ -131,6 +131,7 @@
                       document.getElementById('codelist').innerHTML = (items.codelist !== null || items.codelist !== undefined ? items.codelist : '');
                       document.getElementById('codelist_link').innerHTML = (items.codelistLink !== null || items.codelistLink !== undefined ? items.codelistLink : '');
                       document.getElementById('visualization').innerHTML = (items.tools !== null || items.tools !== undefined ? items.tools : '');
+                      document.getElementById('copyright').innerHTML = (items.copyright !== null || items.copyright !== undefined ? items.tools : '');
                    }
                }
 
@@ -248,6 +249,10 @@
                                   <tr>
                                     <th scope="row">{{ _('Herramienta de visualización') }}</th>
                                     <td id="visualization"></td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">{{ _('Copyright') }}</th>
+                                    <td id="copyright"></td>
                                   </tr>
 
                                 </tbody>
