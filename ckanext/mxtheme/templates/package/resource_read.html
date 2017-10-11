@@ -110,19 +110,20 @@
           {% endblock %}
        {% endblock %}
        {% endblock %}
-            <script> // Para inyectar los campos `accrualPeriodicity` y `temporal`
+            <script> 
+              // Inyeccion de metadatos Adela (TEMPORALMENTE)
                var xhr;
-               if (window.XMLHttpRequest) xhr = new XMLHttpRequest();     // all browsers except IE
-               else xhr = new ActiveXObject("Microsoft.XMLHTTP");     // for IE
+               if (window.XMLHttpRequest) xhr = new XMLHttpRequest();
+               else xhr = new ActiveXObject("Microsoft.XMLHTTP");
 
                xhr.open('GET', '{{h.get_adela_endpoint()}}/{{h.slugify_text(h.resource_display_name(res))}}', false);
                xhr.onreadystatechange = function () {
                    if (xhr.readyState===4 && xhr.status===200) {
                       var items = JSON.parse(xhr.responseText).distribution;
-                      document.getElementById('accrualPeriodicity').innerHTML = (items.accrualPeriodicity !== null ? items.accrualPeriodicity : '');
+                      document.getElementById('accrualPeriodicity').innerHTML = (items.dataset.accrualPeriodicity !== null ? items.dataset.accrualPeriodicity : '');
                       document.getElementById('temporal').innerHTML = (items.temporal !== null ? items.temporal : '');
                       document.getElementById('codelist').innerHTML = (items.codelist !== null ? items.codelist : '');
-                      document.getElementById('codelist_link').innerHTML = (items.codelist_link !== null ? items.codelist_link : '');
+                      document.getElementById('codelist_link').innerHTML = (items.codelistLink !== null ? items.codelistLink : '');
                       document.getElementById('visualization').innerHTML = (items.tools !== null ? items.tools : '');
                       document.getElementById('format').innerHTML = (items.format !== null ? items.format : '');
                    }

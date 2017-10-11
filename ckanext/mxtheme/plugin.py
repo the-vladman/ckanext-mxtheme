@@ -165,7 +165,6 @@ def slugify_name(text):
     return slugify(text.encode('utf-8')) if text is not None else text
 
 
-
 def get_adela_endpoint():
     adela_endpoint = config.get(
         # 'mxtheme.adela_api_endopint', 'http://adela.datos.gob.mx/api/v1/distributions'
