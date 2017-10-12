@@ -110,26 +110,38 @@
           {% endblock %}
        {% endblock %}
        {% endblock %}
-            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-            <script>
-              // Inyeccion de metadatos Adela (TEMPORALMENTE)
-               var xhr;
-               if (window.XMLHttpRequest) xhr = new XMLHttpRequest();
-               else xhr = new ActiveXObject("Microsoft.XMLHTTP");
+       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+            <script type="text/javascript">
+              $(document).ready(function(){
+                // Inyeccion de metadatos Adela (TEMPORALMENTE)
+                 var xhr;
+                 if (window.XMLHttpRequest) xhr = new XMLHttpRequest();
+                 else xhr = new ActiveXObject("Microsoft.XMLHTTP");
+  
+                 xhr.open('GET', '{{h.get_adela_endpoint()}}/{{h.slugify_text(h.resource_display_name(res))}}', false);
+                 xhr.onreadystatechange = function () {
+                     if (xhr.readyState===4 && xhr.status===200) {
+                        var items = JSON.parse(xhr.responseText).distribution;
+  
+                        if(items.dataset !== null){
+                          document.getElementById('accrualPeriodicity').innerHTML = (items.dataset.accrualPeriodicity !== null || items.dataset.accrualPeriodicity !== undefined ? items.dataset.accrualPeriodicity : '');
+                        } else {
+                          document.getElementById('accrualPeriodicity').innerHTML = '';
+                        }
+  
+                        document.getElementById('temporal').innerHTML = (items.temporal !== null || items.temporal !== undefined ? items.temporal : '');
+                        document.getElementById('codelist').innerHTML = (items.codelist !== null || items.codelist !== undefined ? items.codelist : '');
+                        document.getElementById('codelist_link').innerHTML = (items.codelistLink !== null || items.codelistLink !== undefined ? items.codelistLink : '');
+                        document.getElementById('visualization').innerHTML = (items.tools !== null || items.tools !== undefined ? items.tools : '');
+                        document.getElementById('spatial').innerHTML = (items.spatial !== null || items.spatial !== undefined ? items.spatial : '');
+                        document.getElementById('copyright').innerHTML = (items.copyright !== null || items.copyright !== undefined ? items.copyright : '');
+                     }
+                 }
 
-               xhr.open('GET', '{{h.get_adela_endpoint()}}/{{h.slugify_text(h.resource_display_name(res))}}', false);
-               xhr.onreadystatechange = function () {
-                   if (xhr.readyState===4 && xhr.status===200) {
-                      var items = JSON.parse(xhr.responseText).distribution;
-                      document.getElementById('accrualPeriodicity').innerHTML = (items.dataset.accrualPeriodicity !== null ? items.dataset.accrualPeriodicity : '');
-                      document.getElementById('temporal').innerHTML = (items.temporal !== null ? items.temporal : '');
-                      document.getElementById('codelist').innerHTML = (items.codelist !== null ? items.codelist : '');
-                      document.getElementById('codelist_link').innerHTML = (items.codelistLink !== null ? items.codelistLink : '');
-                      document.getElementById('visualization').innerHTML = (items.tools !== null ? items.tools : '');
-                      //document.getElementById('format').innerHTML = (items.format !== null ? items.format : '');
-                   }
-               }
-               $(document).ready( function () { xhr.send(); });
+                 xhr.send();
+              });
+
+               //$(document).ready( function () { xhr.send(); });
               </script>
            <div id="additionals" class="row">
                 <div id="sidebar" class="col-md-3">
@@ -243,7 +255,15 @@
                                     <th scope="row">{{ _('Herramienta de visualización') }}</th>
                                     <td id="visualization"></td>
                                   </tr>
-
+                                  <tr>
+                                    <th scope="row">{{ _('Copyright') }}</th>
+                                    <td id="copyright"></td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">{{ _('Espacio geográfico') }}</th>
+                                    <td id="spatial"></td>
+                                  </tr>
+                                  
                                 </tbody>
                               </table>
                             </div>
