@@ -75,6 +75,22 @@
                 Calidad de Datos
               {% elif key == 'spatial_text' %}
                 Espacio geogr&aacute;fico
+              {% elif key == 'dcat_issued' %}
+                Creado
+              {% elif key == 'dcat_modified' %}
+                Ultima modificación
+              {% elif key == 'dcat_publisher_email' %}
+                Email del publicador
+              {% elif key == 'dcat_publisher_name' %}
+                Nombre del publicador
+              {% elif key == 'harvest_object_id' %}
+                Id del Harvest
+              {% elif key == 'harvest_source_id' %}
+                Fuente del Harvest
+              {% elif key == 'harvest_source_title' %}
+                Nombre del Harvest
+              {% elif key == 'language' %}
+                Lenguaje
               {% else %}
                 {{ _(key) }}
               {% endif %}

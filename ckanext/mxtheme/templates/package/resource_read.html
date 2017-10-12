@@ -110,7 +110,8 @@
           {% endblock %}
        {% endblock %}
        {% endblock %}
-            <script> 
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+            <script>
               // Inyeccion de metadatos Adela (TEMPORALMENTE)
                var xhr;
                if (window.XMLHttpRequest) xhr = new XMLHttpRequest();
@@ -125,7 +126,7 @@
                       document.getElementById('codelist').innerHTML = (items.codelist !== null ? items.codelist : '');
                       document.getElementById('codelist_link').innerHTML = (items.codelistLink !== null ? items.codelistLink : '');
                       document.getElementById('visualization').innerHTML = (items.tools !== null ? items.tools : '');
-                      document.getElementById('format').innerHTML = (items.format !== null ? items.format : '');
+                      //document.getElementById('format').innerHTML = (items.format !== null ? items.format : '');
                    }
                }
                $(document).ready( function () { xhr.send(); });
@@ -184,7 +185,7 @@
                                     <td>{% snippet "snippets/license.html", pkg_dict=pkg, text_only=True %}</td>
                                   </tr>
                                   {% for key, value in h.format_resource_items(res.items()) %}
-                                    {% if key != 'format' %}
+                                    {% if key != 'format' and key != 'created' %}
                                       <tr class="toggle-more">
                                         {# Esto no va a ser necesario cuando tengamos el idioma actualizado #}
                                         <th scope="row">
@@ -222,10 +223,6 @@
                                       </tr>
                                     {% endif %}
                                     {% endfor %}
-                                  <tr>
-                                    <th scope="row">{{ _('Formato') }}</th>
-                                    <td id="format"></td>
-                                  </tr>
                                   <tr>
                                     <th scope="row">{{ _('Periodo de actualización') }}</th>
                                     <td id="accrualPeriodicity"></td>

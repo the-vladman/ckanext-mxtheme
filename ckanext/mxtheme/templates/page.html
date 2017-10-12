@@ -19,7 +19,7 @@
                  <div class="row" style="margin-top: 100px;">
                    {% block breadcrumb %}
                      {% if self.breadcrumb_content() | trim %}
-                        <div class="col-md-9">
+                        <div class="col-md-7">
                             <ul class="breadcrumb">
                               {% snippet 'snippets/home_breadcrumb_item.html' %}
                               {% block breadcrumb_content %}{% endblock %} 
@@ -33,8 +33,8 @@
                         #}                   
                      {% endif %}
                     {% endblock %}
-                     <div class="col-md-3">
-                        <ul class="submenu recortado">
+                     <div class="col-md-5">
+                        <ul class="submenu">
                             <li><a href="/busca/dataset">Todos los datos</a></li>
                             <li><a href="/busca/organization">Instituciones</a></li>
                             <li><a href="/busca/group">Grupos</a></li>
