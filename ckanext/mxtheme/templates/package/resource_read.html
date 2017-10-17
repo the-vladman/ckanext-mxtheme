@@ -135,6 +135,8 @@
                         document.getElementById('visualization').innerHTML = (items.tools !== null || items.tools !== undefined ? items.tools : '');
                         document.getElementById('spatial').innerHTML = (items.spatial !== null || items.spatial !== undefined ? items.spatial : '');
                         document.getElementById('copyright').innerHTML = (items.copyright !== null || items.copyright !== undefined ? items.copyright : '');
+                        document.getElementById('adela_modified').innerHTML = (items.modified !== null || items.modified !== undefined ? items.modified : '');
+                        document.getElementById('adela_created').innerHTML = (items.createdAt !== null || items.createdAt !== undefined ? items.createdAt : '');
                      }
                  }
 
@@ -197,7 +199,7 @@
                                     <td>{% snippet "snippets/license.html", pkg_dict=pkg, text_only=True %}</td>
                                   </tr>
                                   {% for key, value in h.format_resource_items(res.items()) %}
-                                    {% if key != 'format' and key != 'created' %}
+                                    {% if key != 'format' and key != 'created' and key != 'size' %}
                                       <tr class="toggle-more">
                                         {# Esto no va a ser necesario cuando tengamos el idioma actualizado #}
                                         <th scope="row">
@@ -236,6 +238,14 @@
                                     {% endif %}
                                     {% endfor %}
                                   <tr>
+                                      <th scope="row">{{ _('Fecha de última modificación de datos') }}</th>
+                                    <td id="adela_modified"></td>
+                                  </tr>
+                                  <tr>
+                                      <th scope="row">{{ _('Fecha de creación') }}</th>
+                                    <td id="adela_created"></td>
+                                  </tr>
+                                  <tr>
                                     <th scope="row">{{ _('Periodo de actualización') }}</th>
                                     <td id="accrualPeriodicity"></td>
                                   </tr>
@@ -263,7 +273,6 @@
                                     <th scope="row">{{ _('Espacio geográfico') }}</th>
                                     <td id="spatial"></td>
                                   </tr>
-                                  
                                 </tbody>
                               </table>
                             </div>
