@@ -162,7 +162,7 @@ def slugify_name(text):
     Slugifica cualquier texto
     """
     regexs = r'[^-a-zA-z_]+'
-    return slugify(text.encode('utf-8'), regex_pattern=regexs)) if text is not None else text
+    return slugify(text.encode('utf-8'), regex_pattern=regexs) if text is not None else text
 
 
 def get_adela_endpoint():
