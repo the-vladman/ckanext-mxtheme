@@ -44,8 +44,10 @@
     <title>
       {%- block title -%}
         {%- block subtitle %}{% endblock -%}
+        {# 
         {%- if self.subtitle()|trim %} {{ g.template_title_deliminater }} {% endif -%}
-        {{ g.site_title }}
+        {{ g.site_title }} 
+        #}
       {%- endblock -%}
     </title>
 
@@ -81,6 +83,7 @@
         {% resource 'mxtheme/font-awesome.css' %}
         #}
         {% resource 'mxtheme/mx.css' %}
+        <link rel="stylesheet" type="text/css" href="https://cdn.datos.gob.mx/assets/css/main.css">
         <link rel="stylesheet" type="text/css" href="https://cdn.datos.gob.mx/qa/bower_components/dgm-style/reset-footer.css">
 
     {% endblock %}
