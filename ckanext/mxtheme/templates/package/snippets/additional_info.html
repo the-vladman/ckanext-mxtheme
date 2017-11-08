@@ -65,8 +65,9 @@
         {% endif %}
 
       {% block extras scoped %}
-        {% for extra in h.sorted_extras(pkg_dict.extras) %}
+        {% for extra in h.sorted_extras_dgm(pkg_dict.extras) %}
           {% set key, value = extra %}
+          {#{% if key != 'Final del periodo temporal' and key != 'Inicio del periodo temporal'%}#}
           <tr rel="dc:relation" resource="_:extra{{ i }}">
             <td scope="row" class="dataset-label" property="rdfs:label">
               {% if key == 'dataDictionary' %}
@@ -107,9 +108,9 @@
               {% endif %}
             </td>
           </tr>
+          {#{% endif %}#}
         {% endfor %}
       {% endblock %}
-
       {% endblock %}
     </tbody>
   </table>

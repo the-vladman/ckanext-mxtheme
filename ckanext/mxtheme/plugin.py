@@ -7,6 +7,7 @@ import urlparse
 import ckan.exceptions
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
+from ckan.lib.helpers import sorted_extras
 from pylons import config
 from slugify import slugify
 from ckan.common import request
@@ -173,6 +174,24 @@ def get_adela_endpoint():
 
     return adela_endpoint
 
+def sorted_extras_dgm(extras):
+    sorted_list = sorted_extras(extras)
+    initial_peroid =final_period = None
+
+    for element in sorted_list:
+        log.debug(element)
+        if element[0] == 'Inicio del periodo temporal':
+            initial_peroid = element
+
+        if element[0] == 'Final del periodo temporal':
+            final_period = element
+
+    if initial_peroid is not None and final_period is not None:
+        sorted_list.remove(final_period)
+        sorted_list.insert(sorted_list.index(initial_peroid) + 1, final_period)
+    
+    return sorted_list
+
 
 class MxthemePlugin(plugins.SingletonPlugin):
     """
@@ -208,4 +227,5 @@ class MxthemePlugin(plugins.SingletonPlugin):
             '_add_i18n_to_url': _add_i18n_to_url,
             'slugify_text': slugify_name,
             'get_adela_endpoint': get_adela_endpoint,
+            'sorted_extras_dgm': sorted_extras_dgm
         }
