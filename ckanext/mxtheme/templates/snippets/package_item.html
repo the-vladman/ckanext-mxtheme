@@ -13,8 +13,8 @@ Example:
   {% snippet 'snippets/package_item.html', package=c.datasets[0] %}
 
 #}
-{% set truncate = truncate or 180 %}
-{% set truncate_title = truncate_title or 80 %}
+{% set truncate = truncate or 280 %}
+{% set truncate_title = truncate_title or 280 %}
 {% set title = package.title or package.name %}
 {% set notes = h.markdown_extract(package.notes, extract_length=truncate) %}
 
@@ -23,7 +23,10 @@ Example:
     
   {% endblock %}
     <div class="col-md-9">
-        <p class="dataset-date"><span class="tag-icon tag-geoespacial"></span><span>Actualización: <strong>{{h.format_display_date(package.metadata_modified, format_date='%Y/%m/%d')}}</strong></span></p>
+        <p class="dataset-date">
+          <span class="tag-icon tag-geoespacial"></span>
+          {#<span>Actualización: <strong>{{h.format_display_date(package.metadata_modified, format_date='%Y/%m/%d')}}</strong></span>#}
+        </p>
         <h3>{% if package.private %}
           <span class="dataset-private label label-inverse">
             <i class="icon-lock"></i>
@@ -49,7 +52,15 @@ Example:
     <div class="col-md-2 col-md-offset-1">
         {% if package.organization %}
           <p>Instituci&oacute;n</p>
-          <p class="dependency"><strong>{{package.organization.title}}</strong></p>          
+          <p class="dependency tooltip2">
+            <strong>
+              <a href="{{h.url_for(package.organization.type ~ '_read', action='read', id=package.organization.name)}}">{{package.organization.name}}
+              </a>
+            </strong>
+            {% if package.organization.description != '' and package.organization.description != None %}
+              <span class="tooltiptext">{{h.truncate(package.organization.description, 60)}}</span>
+            {% endif %}
+          </p>
         {% endif %}
         <p>Formato</p>
         {% if package.resources and not hide_resources %}

@@ -7283,7 +7283,7 @@ h1:after {
 }
 
 .result-item {
-  height: 350px;
+  height: auto;
 }
 .result-item > a {
   display: inline-block;
@@ -7541,4 +7541,56 @@ h1:after {
           box-shadow: 1px 0 0 0 #d8d8d8 inset;
   position: relative;
   z-index: 1;
+}
+.search-form.btn {
+  position: relative;
+  top: -2px;
+}
+
+.js-hide {
+  display: none;
+}
+
+.js .js-hide.active {
+  display: block;
+}
+
+.tooltip2 {
+    position: relative;
+    display: inline-block;
+    /*border-bottom: 1px dotted black;  If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip2 .tooltiptext {
+    visibility: hidden;
+    width: 205px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+ 
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip2:hover .tooltiptext {
+    visibility: visible;
+}
+.navbar.dgm-navbar ul.navbar-nav.dgm-navbar > li.dgm-navbar > a.dgm-navbar { font-weight: 300; }
+
+
+/* Cambios para el ancho de los breadcrumbs */
+.submenu.recortado {
+  margin-right: 0px !important;
+  padding-right: 0px !important;
+  margin-left: 0px !important;
+  padding-left: 0px !important;
+  float: unset !important;
+}
+.submenu.recortado li {
+  margin-right: 12px !important;
 }
