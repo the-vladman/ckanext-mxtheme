@@ -6824,7 +6824,7 @@ li > a:hover {
   /*line-height: 35px;*/
   color: #696969;
 }
-#sidebar ul > li.active > a,
+/*#sidebar ul > li.active > a,*/
 #sidebar ul > li > a:hover {
   color: #0c9;
 }
