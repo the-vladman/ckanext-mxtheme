@@ -821,6 +821,7 @@ body {
   line-height: 1.42857143;
   color: #333333;
   background-color: #fff;
+  margin: 0 0 300px !important;
 }
 input,
 button,
@@ -7342,3 +7343,9 @@ h1:after {
 .results-home, .counter-datos-ds { margin-top: 10px;}
 .custom-select { width: 66% !important; }
 .pagination-centered { margin: 0px auto !important; padding-bottom: 90px !important;}
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: FontAwesome !important;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus { background: none !important; }
+.nav-tabs>li>a { background: none !important; }
