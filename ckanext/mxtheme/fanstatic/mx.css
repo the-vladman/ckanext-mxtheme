@@ -1,4 +1,4 @@
-/*!
+  /*!
  * Bootstrap v3.3.6 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
@@ -6821,13 +6821,15 @@ li > a:hover {
 #sidebar ul > li > a {
   font-size: 12px;
   font-weight: 400;
-  line-height: 35px;
+  line-height: 20px;
   color: #696969;
 }
-#sidebar ul > li.active > a,
-#sidebar ul > li > a:hover {
+
+/*#sidebar ul > li > a:hover {*/
+#sidebar ul > li.active > a{
   color: #0c9;
 }
+
 #search-form .search-keyword .glyphicon {
   font-size: 16px;
   color: #d8d8d8;
@@ -7570,7 +7572,7 @@ h1:after {
     text-align: center;
     padding: 5px 0;
     border-radius: 6px;
- 
+
     /* Position the tooltip text - see examples below! */
     position: absolute;
     z-index: 1;
