@@ -1,4 +1,5 @@
 import re
+import os
 import i18n
 import logging
 import datetime
@@ -167,11 +168,11 @@ def slugify_name(text):
 
 
 def get_adela_endpoint():
-    adela_endpoint = config.get(
+    #adela_endpoint = config.get(
         # 'mxtheme.adela_api_endopint', 'http://adela.datos.gob.mx/api/v1/distributions'
-        'mxtheme.adela_api_endopint', 'http://10.20.55.7/adela/api/v1/distributions'
-    )
-
+    #    'mxtheme.adela_api_endopint', 'https://adela.datos.gob.mx/adela/api/v1/distributions'
+    #)
+    adela_endpoint = os.environ.get("ADELA_ENDPOINT", "https://adela.datos.gob.mx/adela/api/v1/distributions")
     return adela_endpoint
 
 def sorted_extras_dgm(extras):
