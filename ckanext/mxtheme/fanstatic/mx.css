@@ -6856,7 +6856,9 @@ li > a:hover {
 .dataset-item .dataset-date {
   font-size: 11px;
   font-weight: 300;
-  color: #9b9b9b;
+  color: red;
+  margin-bottom: 15px;
+  margin-top: 10px;
 }
 .dataset-item .dataset-date > span > strong {
   font-weight: 300;
@@ -7570,7 +7572,7 @@ h1:after {
     text-align: center;
     padding: 5px 0;
     border-radius: 6px;
- 
+
     /* Position the tooltip text - see examples below! */
     position: absolute;
     z-index: 1;
