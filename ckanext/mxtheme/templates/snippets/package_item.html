@@ -20,20 +20,20 @@ Example:
 
 <div class="dataset-item row {{ item_class or "dataset-item" }}">
   {% block package_item_content %}
-    
+
   {% endblock %}
-    <div class="col-md-9">
+    <div class="col-md-10">
         <p class="dataset-date">
-          <span class="tag-icon tag-geoespacial"></span>
           {#<span>Actualización: <strong>{{h.format_display_date(package.metadata_modified, format_date='%Y/%m/%d')}}</strong></span>#}
         </p>
-        <h3>{% if package.private %}
+        <h3>
+          {% if package.private %}
           <span class="dataset-private label label-inverse">
             <i class="icon-lock"></i>
             {{ _('Private') }}
           </span>
-        {% endif %}
-        {{ h.link_to(h.truncate(title, truncate_title), h.url_for(controller='package', action='read', id=package.name)) }}
+          {% endif %}
+        <span class="tag-icon tag-geoespacial"></span> {{ h.link_to(h.truncate(title, truncate_title), h.url_for(controller='package', action='read', id=package.name)) }}
         {% if package.get('state', '').startswith('draft') %}
           <span class="label label-info">{{ _('Draft') }}</span>
         {% elif package.get('state', '').startswith('deleted') %}
@@ -49,7 +49,7 @@ Example:
         {% endif %}
     </div>
 
-    <div class="col-md-2 col-md-offset-1">
+    <div class="col-md-2">
         {% if package.organization %}
           <p>Instituci&oacute;n</p>
           <p class="dependency tooltip2">
