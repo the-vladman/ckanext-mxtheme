@@ -7317,6 +7317,7 @@ h1:after {
   text-transform: uppercase;
   border-radius: 3px;
   padding: 2px 4px;
+  margin-top: 10px;
 }
 .dataset-format[data-format="csv"],
 .dataset-format[data-format="CSV"] {
