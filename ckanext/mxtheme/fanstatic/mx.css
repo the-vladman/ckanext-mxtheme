@@ -6871,6 +6871,10 @@ li > a:hover {
 }
 .dataset-item h3 > a {
   color: #474747;
+  font-size: 15px;
+  font-weight: 600;
+  padding-left: 40px;
+  display: block;
 }
 .dataset-item h3 > a:hover {
   font-weight: 700;
