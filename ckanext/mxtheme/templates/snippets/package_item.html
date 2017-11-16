@@ -54,7 +54,7 @@ Example:
 
     <div class="col-md-2">
         {% if package.organization %}
-          <div class="dependency tooltip2">
+          <div class="dependency">
             <strong>
               <a href="{{h.url_for(package.organization.type ~ '_read', action='read', id=package.organization.name)}}">{{package.organization.name}}
               </a>
