@@ -59,9 +59,9 @@ Example:
               <a href="{{h.url_for(package.organization.type ~ '_read', action='read', id=package.organization.name)}}">{{package.organization.name}}
               </a>
             </strong>
-            {% if package.organization.description != '' and package.organization.description != None %}
+            <!-- {% if package.organization.description != '' and package.organization.description != None %}
               <span class="tooltiptext">{{h.truncate(package.organization.description, 60)}}</span>
-            {% endif %}
+            {% endif %} -->
           </div>
         {% endif %}
         {% if package.resources and not hide_resources %}
