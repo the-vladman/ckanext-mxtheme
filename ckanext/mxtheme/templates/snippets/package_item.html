@@ -65,6 +65,7 @@ Example:
           </div>
         {% endif %}
         {% if package.resources and not hide_resources %}
+          <div class="dataset-format-container">
             {% for resource in h.dict_list_reduce(package.resources, 'format') %}
               <span class="dataset-format" data-format="{% if h.is_regular_format(resource.lower()) %}{{resource}}{% else %}OTHER{% endif %}">{{ resource }}</span>
               {#
@@ -73,6 +74,7 @@ Example:
               </li>
               #}
             {% endfor %}
+          </div>
         {% endif %}
     </div>
 </div>
