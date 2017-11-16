@@ -23,9 +23,11 @@ Example:
 
   {% endblock %}
     <div class="col-md-10">
+        {% if package.metadata_modified %}
         <p class="dataset-date">
           {#<span>Actualización: <strong>{{h.format_display_date(package.metadata_modified, format_date='%Y/%m/%d')}}</strong></span>#}
         </p>
+        {% endif %}
         <h3>
           {% if package.private %}
           <span class="dataset-private label label-inverse">
