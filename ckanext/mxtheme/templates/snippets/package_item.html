@@ -29,13 +29,14 @@ Example:
         </p>
         {% endif %}
         <h3>
+          <span class="tag-icon tag-geoespacial"></span>
           {% if package.private %}
           <span class="dataset-private label label-inverse">
             <i class="icon-lock"></i>
             {{ _('Private') }}
           </span>
           {% endif %}
-        <span class="tag-icon tag-geoespacial"></span> {{ h.link_to(h.truncate(title, truncate_title), h.url_for(controller='package', action='read', id=package.name)) }}
+        {{ h.link_to(h.truncate(title, truncate_title), h.url_for(controller='package', action='read', id=package.name)) }}
         {% if package.get('state', '').startswith('draft') %}
           <span class="label label-info">{{ _('Draft') }}</span>
         {% elif package.get('state', '').startswith('deleted') %}
