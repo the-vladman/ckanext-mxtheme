@@ -6873,8 +6873,8 @@ li > a:hover {
   color: #474747;
   font-size: 15px;
   font-weight: 600;
-  padding-left: 40px;
-  display: block;
+  padding-left: 20px;
+  position: absolute;
 }
 .dataset-item h3 > a:hover {
   font-weight: 700;
