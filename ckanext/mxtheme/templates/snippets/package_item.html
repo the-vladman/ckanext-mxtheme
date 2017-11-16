@@ -54,7 +54,7 @@ Example:
 
     <div class="col-md-2">
         {% if package.organization %}
-          <p class="dependency tooltip2">
+          <div class="dependency tooltip2">
             <strong>
               <a href="{{h.url_for(package.organization.type ~ '_read', action='read', id=package.organization.name)}}">{{package.organization.name}}
               </a>
@@ -62,7 +62,7 @@ Example:
             {% if package.organization.description != '' and package.organization.description != None %}
               <span class="tooltiptext">{{h.truncate(package.organization.description, 60)}}</span>
             {% endif %}
-          </p>
+          </div>
         {% endif %}
         {% if package.resources and not hide_resources %}
             {% for resource in h.dict_list_reduce(package.resources, 'format') %}

@@ -7280,7 +7280,7 @@ h1:after {
   left: 0;
 }
 .dataset-item h3,
-.dataset-item p.dependency {
+.dataset-item .dependency {
   margin-top: 10px;
 }
 .dataset-item h4 {
