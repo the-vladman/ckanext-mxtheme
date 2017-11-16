@@ -6858,7 +6858,9 @@ li > a:hover {
 .dataset-item .dataset-date {
   font-size: 11px;
   font-weight: 300;
-  color: #9b9b9b;
+  color: red;
+  margin-bottom: 15px;
+  margin-top: 10px;
 }
 .dataset-item .dataset-date > span > strong {
   font-weight: 300;
@@ -6871,6 +6873,10 @@ li > a:hover {
 }
 .dataset-item h3 > a {
   color: #474747;
+  font-size: 15px;
+  font-weight: 600;
+  padding-left: 20px;
+  position: absolute;
 }
 .dataset-item h3 > a:hover {
   font-weight: 700;
@@ -7250,7 +7256,7 @@ h1:after {
 .dataset-item,
 .result-item {
   margin-bottom: 20px;
-  padding: 15px 10px;
+  padding:10px;
   background-color: #f9f9f9;
   border: 1px solid #f6f6f6;
   border-radius: 5px;
@@ -7276,9 +7282,14 @@ h1:after {
   left: 0;
 }
 .dataset-item h3,
-.dataset-item p.dependency {
-  margin-bottom: 20px;
+.dataset-item .dependency {
+  margin-top: 10px;
 }
+
+.dependency {
+  text-transform: uppercase;
+}
+
 .dataset-item h4 {
   margin-top: 0;
   margin-bottom: 10px;
@@ -7310,6 +7321,10 @@ h1:after {
 .tags-list > li > a {
   display: block;
 }
+.dataset-format-container{
+  margin-top: 20px;
+}
+
 .dataset-format {
   font-size: 10px;
   font-weight: 700;
