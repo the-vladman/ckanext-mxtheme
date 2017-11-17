@@ -117,18 +117,18 @@
                  var xhr;
                  if (window.XMLHttpRequest) xhr = new XMLHttpRequest();
                  else xhr = new ActiveXObject("Microsoft.XMLHTTP");
-  
+
                  xhr.open('GET', '{{h.get_adela_endpoint()}}/{{h.slugify_text(h.resource_display_name(res))}}', false);
                  xhr.onreadystatechange = function () {
                      if (xhr.readyState===4 && xhr.status===200) {
                         var items = JSON.parse(xhr.responseText).distribution;
-  
+
                         if(items.dataset !== null){
                           document.getElementById('accrualPeriodicity').innerHTML = (items.dataset.accrualPeriodicity !== null || items.dataset.accrualPeriodicity !== undefined ? items.dataset.accrualPeriodicity : '');
                         } else {
                           document.getElementById('accrualPeriodicity').innerHTML = '';
                         }
-  
+
                         document.getElementById('temporal').innerHTML = (items.temporal !== null || items.temporal !== undefined ? items.temporal : '');
                         document.getElementById('codelist').innerHTML = (items.codelist !== null || items.codelist !== undefined ? items.codelist : '');
                         document.getElementById('codelist_link').innerHTML = (items.codelistLink !== null || items.codelistLink !== undefined ? items.codelistLink : '');
@@ -198,6 +198,42 @@
                                     <th scope="row">{{ _('License') }}</th>
                                     <td>{% snippet "snippets/license.html", pkg_dict=pkg, text_only=True %}</td>
                                   </tr>
+                                  <tr>
+                                      <th scope="row">{{ _('Fecha de última modificación de datos') }}</th>
+                                    <td id="adela_modified"></td>
+                                  </tr>
+                                  <tr>
+                                      <th scope="row">{{ _('Fecha de creación') }}</th>
+                                    <td id="adela_created"></td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">{{ _('Periodo de actualización') }}</th>
+                                    <td id="accrualPeriodicity"></td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">{{ _('Periodo cubierto por los datos') }}</th>
+                                    <td id="temporal"></td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">{{ _('Codelist') }}</th>
+                                    <td id="codelist"></td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">{{ _('Codelist Link') }}</th>
+                                    <td id="codelist_link"></td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">{{ _('Herramienta de visualización') }}</th>
+                                    <td id="visualization"></td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">{{ _('Copyright') }}</th>
+                                    <td id="copyright"></td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">{{ _('Espacio geográfico') }}</th>
+                                    <td id="spatial"></td>
+                                  </tr>
                                   {% for key, value in h.format_resource_items(res.items()) %}
                                     {% if key != 'format' and key != 'created' and key != 'size' %}
                                       <tr class="toggle-more">
@@ -237,42 +273,6 @@
                                       </tr>
                                     {% endif %}
                                     {% endfor %}
-                                  <tr>
-                                      <th scope="row">{{ _('Fecha de última modificación de datos') }}</th>
-                                    <td id="adela_modified"></td>
-                                  </tr>
-                                  <tr>
-                                      <th scope="row">{{ _('Fecha de creación') }}</th>
-                                    <td id="adela_created"></td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">{{ _('Periodo de actualización') }}</th>
-                                    <td id="accrualPeriodicity"></td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">{{ _('Periodo cubierto por los datos') }}</th>
-                                    <td id="temporal"></td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">{{ _('Codelist') }}</th>
-                                    <td id="codelist"></td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">{{ _('Codelist Link') }}</th>
-                                    <td id="codelist_link"></td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">{{ _('Herramienta de visualización') }}</th>
-                                    <td id="visualization"></td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">{{ _('Copyright') }}</th>
-                                    <td id="copyright"></td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">{{ _('Espacio geográfico') }}</th>
-                                    <td id="spatial"></td>
-                                  </tr>
                                 </tbody>
                               </table>
                             </div>
