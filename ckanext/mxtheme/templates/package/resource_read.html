@@ -213,8 +213,6 @@
                                           DataStore Activo
                                           {% elif key == 'last modified' %}
                                           Ultima Modificación
-                                          {% else %}
-                                            {{ _(key) }}
                                           {% endif %}
                                         </th>
                                         <td>
@@ -265,7 +263,7 @@
                                     <th scope="row">{{ _('Espacio geográfico') }}</th>
                                     <td id="spatial"></td>
                                   </tr>
-                                  <!-- {% for key, value in h.format_resource_items(res.items()) %}
+                                  {% for key, value in h.format_resource_items(res.items()) %}
                                     {% if key != 'format' and key != 'created' and key != 'size' %}
                                       <tr class="toggle-more">
                                         {# Esto no va a ser necesario cuando tengamos el idioma actualizado #}
@@ -285,7 +283,7 @@
                                         </td>
                                       </tr>
                                     {% endif %}
-                                    {% endfor %} -->
+                                    {% endfor %}
                                 </tbody>
                               </table>
                             </div>
