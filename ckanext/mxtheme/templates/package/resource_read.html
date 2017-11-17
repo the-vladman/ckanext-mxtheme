@@ -117,18 +117,18 @@
                  var xhr;
                  if (window.XMLHttpRequest) xhr = new XMLHttpRequest();
                  else xhr = new ActiveXObject("Microsoft.XMLHTTP");
-  
+
                  xhr.open('GET', '{{h.get_adela_endpoint()}}/{{h.slugify_text(h.resource_display_name(res))}}', false);
                  xhr.onreadystatechange = function () {
                      if (xhr.readyState===4 && xhr.status===200) {
                         var items = JSON.parse(xhr.responseText).distribution;
-  
+
                         if(items.dataset !== null){
                           document.getElementById('accrualPeriodicity').innerHTML = (items.dataset.accrualPeriodicity !== null || items.dataset.accrualPeriodicity !== undefined ? items.dataset.accrualPeriodicity : '');
                         } else {
                           document.getElementById('accrualPeriodicity').innerHTML = '';
                         }
-  
+
                         document.getElementById('temporal').innerHTML = (items.temporal !== null || items.temporal !== undefined ? items.temporal : '');
                         document.getElementById('codelist').innerHTML = (items.codelist !== null || items.codelist !== undefined ? items.codelist : '');
                         document.getElementById('codelist_link').innerHTML = (items.codelistLink !== null || items.codelistLink !== undefined ? items.codelistLink : '');
@@ -202,6 +202,15 @@
                                     {% if key != 'format' and key != 'created' and key != 'size' %}
                                       <tr class="toggle-more">
                                         {# Esto no va a ser necesario cuando tengamos el idioma actualizado #}
+                                        <td>
+                                          {% if key == 'state' %}
+                                            {% if value == 'active' or 'Active' %}
+                                              Activo
+                                            {% endif %}
+                                          {% else %}
+                                            {{ _(value) }}
+                                          {% endif %}
+                                        </td>
                                         <th scope="row">
                                           {% if key == 'package id' %}
                                           Id del Paquete
@@ -214,7 +223,7 @@
                                           {% elif key == 'has views' %}
                                           Visitas
                                           {% elif key == 'id' %}
-                                          ID
+                                          Id
                                           {% elif key == 'datastore active' %}
                                           DataStore Activo
                                           {% elif key == 'last modified' %}
@@ -225,15 +234,6 @@
                                             {{ _(key) }}
                                           {% endif %}
                                         </th>
-                                        <td>
-                                          {% if key == 'state' %}
-                                            {% if value == 'active' or 'Active' %}
-                                              Activo
-                                            {% endif %}
-                                          {% else %}
-                                            {{ _(value) }}
-                                          {% endif %}
-                                          </td>
                                       </tr>
                                     {% endif %}
                                     {% endfor %}
