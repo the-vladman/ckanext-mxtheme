@@ -203,7 +203,7 @@
                                       <tr class="toggle-more">
                                         {# Esto no va a ser necesario cuando tengamos el idioma actualizado #}
                                         <th scope="row">
-                                          {% elif key == 'position' %}
+                                          {% if key == 'position' %}
                                           Posici&oacute;n
                                           {% elif key == 'state' %}
                                           Estado
@@ -228,7 +228,7 @@
                                           </td>
                                       </tr>
                                     {% endif %}
-                                    {% endfor %}
+                                  {% endfor %}
                                   <tr>
                                       <th scope="row">{{ _('Fecha de última modificación de datos') }}</th>
                                     <td id="adela_modified"></td>
