@@ -198,6 +198,37 @@
                                     <th scope="row">{{ _('License') }}</th>
                                     <td>{% snippet "snippets/license.html", pkg_dict=pkg, text_only=True %}</td>
                                   </tr>
+                                  {% for key, value in h.format_resource_items(res.items()) %}
+                                    {% if key != 'format' and key != 'created' and key != 'size' %}
+                                      <tr class="toggle-more">
+                                        {# Esto no va a ser necesario cuando tengamos el idioma actualizado #}
+                                        <th scope="row">
+                                          {% elif key == 'position' %}
+                                          Posici&oacute;n
+                                          {% elif key == 'state' %}
+                                          Estado
+                                          {% elif key == 'has views' %}
+                                          Visitas
+                                          {% elif key == 'datastore active' %}
+                                          DataStore Activo
+                                          {% elif key == 'last modified' %}
+                                          Ultima Modificación
+                                          {% else %}
+                                            {{ _(key) }}
+                                          {% endif %}
+                                        </th>
+                                        <td>
+                                          {% if key == 'state' %}
+                                            {% if value == 'active' or 'Active' %}
+                                              Activo
+                                            {% endif %}
+                                          {% else %}
+                                            {{ _(value) }}
+                                          {% endif %}
+                                          </td>
+                                      </tr>
+                                    {% endif %}
+                                    {% endfor %}
                                   <tr>
                                       <th scope="row">{{ _('Fecha de última modificación de datos') }}</th>
                                     <td id="adela_modified"></td>
@@ -241,35 +272,16 @@
                                         <th scope="row">
                                           {% if key == 'package id' %}
                                           Id del Paquete
-                                          {% elif key == 'position' %}
-                                          Posici&oacute;n
                                           {% elif key == 'revision id' %}
                                           Id de Revisi&oacute;n
-                                          {% elif key == 'state' %}
-                                          Estado
-                                          {% elif key == 'has views' %}
-                                          Visitas
                                           {% elif key == 'id' %}
-                                          ID
-                                          {% elif key == 'datastore active' %}
-                                          DataStore Activo
-                                          {% elif key == 'last modified' %}
-                                          Ultima Modificación
+                                          Id
                                           {% elif key == 'resource group id' %}
                                           Id del Grupo de Recursos
-                                          {% else %}
-                                            {{ _(key) }}
-                                          {% endif %}
                                         </th>
                                         <td>
-                                          {% if key == 'state' %}
-                                            {% if value == 'active' or 'Active' %}
-                                              Activo
-                                            {% endif %}
-                                          {% else %}
-                                            {{ _(value) }}
-                                          {% endif %}
-                                          </td>
+                                          {{ _(value) }}
+                                        </td>
                                       </tr>
                                     {% endif %}
                                     {% endfor %}
