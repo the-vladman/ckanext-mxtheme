@@ -172,7 +172,7 @@ def get_adela_endpoint():
         # 'mxtheme.adela_api_endopint', 'http://adela.datos.gob.mx/api/v1/distributions'
     #    'mxtheme.adela_api_endopint', 'https://adela.datos.gob.mx/adela/api/v1/distributions'
     #)
-    adela_endpoint = os.environ.get("ADELA_ENDPOINT", "https://adela.datos.gob.mx/adela/api/v1/distributions")
+    adela_endpoint = os.environ.get("ADELA_ENDPOINT", "http://10.20.55.7/adela/api/v1/distributions")
     return adela_endpoint
 
 def sorted_extras_dgm(extras):
@@ -190,7 +190,7 @@ def sorted_extras_dgm(extras):
     if initial_peroid is not None and final_period is not None:
         sorted_list.remove(final_period)
         sorted_list.insert(sorted_list.index(initial_peroid) + 1, final_period)
-    
+
     return sorted_list
 
 
