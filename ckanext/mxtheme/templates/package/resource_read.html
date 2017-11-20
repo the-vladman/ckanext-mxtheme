@@ -113,8 +113,8 @@
        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
             <script type="text/javascript">
               $(document).ready(function(){
-		// hide elements
-		 $("#accrualPeriodicity").hide();
+		              // hide elements
+		             $("#accrualPeriodicity").hide();
                  $("#temporal").hide();
                  $("#codelist").hide();
                  $("#codelist_link").hide();
@@ -123,6 +123,15 @@
                  $("#copyright").hide();
                  $("#adela_modified").hide();
                  $("#adela_created").hide();
+                 $("#th_accrualPeriodicity").hide();
+                 $("#th_temporal").hide();
+                 $("#th_codelist").hide();
+                 $("#th_codelist_link").hide();
+                 $("#th_visualization").hide();
+                 $("#th_spatial").hide();
+                 $("#th_copyright").hide();
+                 $("#th_adela_modified").hide();
+                 $("#th_adela_created").hide();
                 // Inyeccion de metadatos Adela (TEMPORALMENTE)
                  var xhr;
                  if (window.XMLHttpRequest) xhr = new XMLHttpRequest();
@@ -221,9 +230,9 @@
                                           Visitas
                                           {% elif key == 'datastore active' %}
                                           DataStore Activo
-					  {% else %}
-					  {{ _(key) }}
-					  {% endif %}
+                              					  {% else %}
+                              					  {{ _(key) }}
+                              					  {% endif %}
                                         </th>
                                         <td>
                                           {% if key == 'state' %}
@@ -238,39 +247,39 @@
                                     {% endif %}
                                   {% endfor %}
                                   <tr>
-                                      <th scope="row">{{ _('Fecha de última modificación de datos') }}</th>
+                                      <th id="th_adela_modified" scope="row">{{ _('Fecha de última modificación de datos') }}</th>
                                     <td id="adela_modified"></td>
                                   </tr>
                                   <tr>
-                                      <th scope="row">{{ _('Fecha de creación') }}</th>
+                                      <th id="th_adela_created" scope="row">{{ _('Fecha de creación') }}</th>
                                     <td id="adela_created"></td>
                                   </tr>
                                   <tr>
-                                    <th scope="row">{{ _('Periodo de actualización') }}</th>
+                                    <th id="th_accrualPeriodicity" scope="row">{{ _('Periodo de actualización') }}</th>
                                     <td id="accrualPeriodicity"></td>
                                   </tr>
                                   <tr>
-                                    <th scope="row">{{ _('Periodo cubierto por los datos') }}</th>
+                                    <th id="th_temporal" scope="row">{{ _('Periodo cubierto por los datos') }}</th>
                                     <td id="temporal"></td>
                                   </tr>
                                   <tr>
-                                    <th scope="row">{{ _('Codelist') }}</th>
+                                    <th id="th_codelist" scope="row">{{ _('Codelist') }}</th>
                                     <td id="codelist"></td>
                                   </tr>
                                   <tr>
-                                    <th scope="row">{{ _('Codelist Link') }}</th>
+                                    <th id="th_codelist_link" scope="row">{{ _('Codelist Link') }}</th>
                                     <td id="codelist_link"></td>
                                   </tr>
                                   <tr>
-                                    <th scope="row">{{ _('Herramienta de visualización') }}</th>
+                                    <th id="th_visualization" scope="row">{{ _('Herramienta de visualización') }}</th>
                                     <td id="visualization"></td>
                                   </tr>
                                   <tr>
-                                    <th scope="row">{{ _('Copyright') }}</th>
+                                    <th id="th_copyright" scope="row">{{ _('Copyright') }}</th>
                                     <td id="copyright"></td>
                                   </tr>
                                   <tr>
-                                    <th scope="row">{{ _('Espacio geográfico') }}</th>
+                                    <th id="th_spatial" scope="row">{{ _('Espacio geográfico') }}</th>
                                     <td id="spatial"></td>
                                   </tr>
                                   {% for key, value in h.format_resource_items(res.items()) %}
