@@ -141,21 +141,51 @@
                  xhr.onreadystatechange = function () {
                      if (xhr.readyState===4 && xhr.status===200) {
                         var items = JSON.parse(xhr.responseText).distribution;
-
-                        if(items.dataset !== null){
-                          document.getElementById('accrualPeriodicity').innerHTML = (items.dataset.accrualPeriodicity !== null || items.dataset.accrualPeriodicity !== undefined ? items.dataset.accrualPeriodicity : '');
-                        } else {
-                          document.getElementById('accrualPeriodicity').innerHTML = '';
+                        if(items.dataset){
+                          document.getElementById('accrualPeriodicity').innerHTML = items.dataset.accrualPeriodicity;
+                          $("#accrualPeriodicity").show();
+                          $("#th_accrualPeriodicity").show();
                         }
-
-                        document.getElementById('temporal').innerHTML = (items.temporal !== null || items.temporal !== undefined ? items.temporal : '');
-                        document.getElementById('codelist').innerHTML = (items.codelist !== null || items.codelist !== undefined ? items.codelist : '');
-                        document.getElementById('codelist_link').innerHTML = (items.codelistLink !== null || items.codelistLink !== undefined ? items.codelistLink : '');
-                        document.getElementById('visualization').innerHTML = (items.tools !== null || items.tools !== undefined ? items.tools : '');
-                        document.getElementById('spatial').innerHTML = (items.spatial !== null || items.spatial !== undefined ? items.spatial : '');
-                        document.getElementById('copyright').innerHTML = (items.copyright !== null || items.copyright !== undefined ? items.copyright : '');
-                        document.getElementById('adela_modified').innerHTML = (items.modified !== null || items.modified !== undefined ? items.modified : '');
-                        document.getElementById('adela_created').innerHTML = (items.createdAt !== null || items.createdAt !== undefined ? items.createdAt : '');
+                        if(items.temporal){
+                          document.getElementById('temporal').innerHTML = items.temporal;
+                          $("#temporal").show();
+                          $("#th_temporal").show();
+                        }
+                        if(items.codelist){
+                          document.getElementById('codelist').innerHTML = items.codelist;
+                          $("#codelist").show();
+                          $("#th_codelist").show();
+                        }
+                        if(items.codelist_link){
+                          document.getElementById('codelist_link').innerHTML = items.codelist_link;
+                          $("#codelist_link").show();
+                          $("#th_codelist_link").show();
+                        }
+                        if(items.visualization){
+                          document.getElementById('visualization').innerHTML = items.visualization;
+                          $("#visualization").show();
+                          $("#th_visualization").show();
+                        }
+                        if(items.spatial){
+                          document.getElementById('spatial').innerHTML = items.spatial;
+                          $("#spatial").show();
+                          $("#th_spatial").show();
+                        }
+                        if(items.copyright){
+                          document.getElementById('copyright').innerHTML = items.copyright;
+                          $("#copyright").show();
+                          $("#th_copyright").show();
+                        }
+                        if(items.adela_created){
+                          document.getElementById('adela_created').innerHTML = items.adela_created;
+                          $("#adela_created").show();
+                          $("#th_adela_created").show();
+                        }
+                        if(items.adela_modified){
+                          document.getElementById('adela_modified').innerHTML = items.adela_modified;
+                          $("#adela_modified").show();
+                          $("#th_adela_modified").show();
+                        }
                      }
                  }
 
