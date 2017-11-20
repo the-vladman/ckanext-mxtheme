@@ -199,11 +199,7 @@
                                     <td>{% snippet "snippets/license.html", pkg_dict=pkg, text_only=True %}</td>
                                   </tr>
                                   {% for key, value in h.format_resource_items(res.items()) %}
-<<<<<<< HEAD
-                                    {% if key != 'format' and key != 'created' and key != 'size' and key != 'package id' and key != 'revision id' and key != 'id' and key != 'resource group id' %}
-=======
                                     {% if key != 'format' and key != 'size' and key != 'package id' and key != 'revision id' and key != 'id' and key != 'resource group id' %}
->>>>>>> 9558cc849517db93efb074688c7b26014d5add84
                                       <tr class="toggle-more">
                                         {# Esto no va a ser necesario cuando tengamos el idioma actualizado #}
                                         <th scope="row">
@@ -215,6 +211,9 @@
                                           Visitas
                                           {% elif key == 'datastore active' %}
                                           DataStore Activo
+					  {% else %}
+					  {{ _(key) }}
+					  {% endif %}
                                         </th>
                                         <td>
                                           {% if key == 'state' %}
