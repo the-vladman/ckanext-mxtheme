@@ -113,8 +113,8 @@
        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
             <script type="text/javascript">
               $(document).ready(function(){
-		              // hide elements
-		             $("#accrualPeriodicity").hide();
+                  // hide elements
+                 $("#accrualPeriodicity").hide();
                  $("#temporal").hide();
                  $("#codelist").hide();
                  $("#codelist_link").hide();
@@ -251,15 +251,6 @@
                                     {% if key != 'format' and key != 'size' and key != 'package id' and key != 'revision id' and key != 'id' and key != 'resource group id' %}
                                       <tr class="toggle-more">
                                         {# Esto no va a ser necesario cuando tengamos el idioma actualizado #}
-                                        <td>
-                                          {% if key == 'state' %}
-                                            {% if value == 'active' or 'Active' %}
-                                              Activo
-                                            {% endif %}
-                                          {% else %}
-                                            {{ _(value) }}
-                                          {% endif %}
-                                        </td>
                                         <th scope="row">
                                           {% if key == 'position' %}
                                           Posici&oacute;n
@@ -269,10 +260,19 @@
                                           Visitas
                                           {% elif key == 'datastore active' %}
                                           DataStore Activo
-                              					  {% else %}
-                              					  {{ _(key) }}
-                              					  {% endif %}
+                                          {% else %}
+                                          {{ _(key) }}
+                                          {% endif %}
                                         </th>
+                                        <td>
+                                          {% if key == 'state' %}
+                                            {% if value == 'active' or 'Active' %}
+                                              Activo
+                                            {% endif %}
+                                          {% else %}
+                                            {{ _(value) }}
+                                          {% endif %}
+                                        </td>
                                       </tr>
                                     {% endif %}
                                   {% endfor %}
