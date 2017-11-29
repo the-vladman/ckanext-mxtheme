@@ -248,7 +248,7 @@
                                     <td>{% snippet "snippets/license.html", pkg_dict=pkg, text_only=True %}</td>
                                   </tr>
                                   {% for key, value in h.format_resource_items(res.items()) %}
-                                    {% if key != 'format' and key != 'size' and key != 'package id' and key != 'revision id' and key != 'id' and key != 'resource group id' %}
+                                    {% if key != 'format' and key != 'size' and key != 'package id' and key != 'revision id' and key != 'id' and key != 'Creado' and key != 'resource group id' %}
                                       <tr class="toggle-more">
                                         {# Esto no va a ser necesario cuando tengamos el idioma actualizado #}
                                         <td>
