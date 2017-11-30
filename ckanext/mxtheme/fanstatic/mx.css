@@ -7359,7 +7359,7 @@ h1:after {
 
 .results-home, .counter-datos-ds { margin-top: 10px;}
 .custom-select { width: 66% !important; }
-.pagination-centered { margin: 0px auto !important; padding-bottom: 90px !important;}
+.pagination-centered { display: block !important; margin: 0px !important; height: 75px;}
 [class^="icon-"]:before, [class*=" icon-"]:before {
   font-family: FontAwesome !important;
 }
