@@ -12,7 +12,11 @@
     {% else %}
       <li>{% link_for 'Datos', controller='package', action='search' %}</li>
     {% endif %}
+      {% if c.resource %}
+	<li>{{ dataset }}</li>
+      {% else %}
       <li{{ self.breadcrumb_content_selected() }}>{% link_for dataset|truncate(60), controller='package', action='read', id=pkg.name, locale='default', qualified=true %}</li>
+      {% endif %}
   {% else %}
     <li>{% link_for 'Datos', controller='package', action='search', locale='default', qualified=true %}</li>
     <li class="active"><a href="">{{ _('Create Dataset') }}</a></li>
