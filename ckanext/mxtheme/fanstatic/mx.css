@@ -1,4 +1,3 @@
-
 @font-face {
   font-family: 'Glyphicons Halflings';
   src: url('https://cdn.datos.gob.mx/bower_components/bootstrap/fonts/glyphicons-halflings-regular.eot');
@@ -6565,13 +6564,15 @@ li > a:hover {
 #sidebar ul > li > a {
   font-size: 12px;
   font-weight: 400;
-  line-height: 35px;
+  line-height: 20px;
   color: #696969;
 }
-#sidebar ul > li.active > a,
-#sidebar ul > li > a:hover {
+
+/*#sidebar ul > li > a:hover {*/
+#sidebar ul > li.active > a{
   color: #0c9;
 }
+
 #search-form .search-keyword .glyphicon {
   font-size: 16px;
   color: #d8d8d8;
@@ -6600,7 +6601,9 @@ li > a:hover {
 .dataset-item .dataset-date {
   font-size: 11px;
   font-weight: 300;
-  color: #9b9b9b;
+  color: red;
+  margin-bottom: 15px;
+  margin-top: 10px;
 }
 .dataset-item .dataset-date > span > strong {
   font-weight: 300;
@@ -6613,6 +6616,10 @@ li > a:hover {
 }
 .dataset-item h3 > a {
   color: #474747;
+  font-size: 15px;
+  font-weight: 600;
+  padding-left: 20px;
+  position: absolute;
 }
 .dataset-item h3 > a:hover {
   font-weight: 700;
@@ -6994,7 +7001,7 @@ h1:after {
 .dataset-item,
 .result-item {
   margin-bottom: 20px;
-  padding: 15px 10px;
+  padding:10px;
   background-color: #f9f9f9;
   border: 1px solid #f6f6f6;
   border-radius: 5px;
@@ -7020,9 +7027,14 @@ h1:after {
   left: 0;
 }
 .dataset-item h3,
-.dataset-item p.dependency {
-  margin-bottom: 20px;
+.dataset-item .dependency {
+  margin-top: 10px;
 }
+
+.dependency {
+  text-transform: uppercase;
+}
+
 .dataset-item h4 {
   margin-top: 0;
   margin-bottom: 10px;
@@ -7054,6 +7066,10 @@ h1:after {
 .tags-list > li > a {
   display: block;
 }
+.dataset-format-container{
+  margin-top: 20px;
+}
+
 .dataset-format {
   font-size: 10px;
   font-weight: 700;
@@ -7316,7 +7332,7 @@ h1:after {
     text-align: center;
     padding: 5px 0;
     border-radius: 6px;
- 
+
     /* Position the tooltip text - see examples below! */
     position: absolute;
     z-index: 1;
@@ -7340,6 +7356,7 @@ h1:after {
 .submenu.recortado li {
   margin-right: 12px !important;
 }
+
 .results-home, .counter-datos-ds { margin-top: 10px;}
 .custom-select { width: 66% !important; }
 .pagination-centered { margin: 0px auto !important; padding-bottom: 90px !important;}
