@@ -2,7 +2,7 @@
 
 {% set res = c.resource %}
 {% block custom_styles %}
-  super()
+  {{ super() }}
   <style type="text/css">
     .breadcrumb>li:last-child>a { pointer-events: all !important; }
   </style>
