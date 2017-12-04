@@ -6635,6 +6635,7 @@ li > a:hover {
   .dataset-item h3 > a {
     margin-top: 0;
     padding-left: 10px;
+    max-width: 94%;
   }
 }
 
