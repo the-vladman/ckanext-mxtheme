@@ -116,18 +116,17 @@
           {% endblock %}
        {% endblock %}
        {% endblock %}
-       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-            <script type="text/javascript">
+           <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+           <script type="text/javascript">
               $(document).ready(function(){
-                // hide elements
                 // Inyeccion de metadatos Adela (TEMPORALMENTE)
-                 var xhr;
-                 if (window.XMLHttpRequest) xhr = new XMLHttpRequest();
-                 else xhr = new ActiveXObject("Microsoft.XMLHTTP");
+                  var xhr;
+                  if (window.XMLHttpRequest) xhr = new XMLHttpRequest();
+                  else xhr = new ActiveXObject("Microsoft.XMLHTTP");
 
-                 xhr.open('GET', '{{h.get_adela_endpoint()}}/{{h.slugify_text(h.resource_display_name(res))}}', false);
-                 xhr.onreadystatechange = function () {
-                     if (xhr.readyState===4 && xhr.status===200) {
+                  xhr.open('GET', '{{h.get_adela_endpoint()}}/{{h.slugify_text(h.resource_display_name(res))}}', false);
+                  xhr.onreadystatechange = function () {
+                      if (xhr.readyState===4 && xhr.status===200) {
                         var items = JSON.parse(xhr.responseText).distribution;
                         if(items.dataset){
                           document.getElementById('accrualPeriodicity').innerHTML = items.dataset.accrualPeriodicity;
@@ -174,17 +173,14 @@
                           $(".adela_modified").show();
                           $("#th_adela_modified").show();
                         }
-                     }
-                 }
+                      }
+                  }
 
-                $(".toggle-show-more").remove();
-                $(".toggle-seperator").remove();
-
-                 xhr.send();
+                  xhr.send();
               });
 
-               //$(document).ready( function () { xhr.send(); });
-              </script>
+              //$(document).ready( function () { xhr.send(); });
+           </script>
            <div id="additionals" class="row">
                 <div id="sidebar" class="col-md-3">
                     {% block resources_list %}
@@ -202,7 +198,7 @@
                             {% block resource_additional_information_inner %}
                             <div class="module-content">
                               <h2>{{ _('Additional Information') }}</h2>
-                              <table class="table table-striped table-bordered table-condensed" data-module="table-toggle-more">
+                              <table class="table table-striped table-bordered table-condensed">
                                 <thead>
                                   <tr>
                                     <th scope="col">{{ _('Field') }}</th>
@@ -331,6 +327,12 @@
                       {% endblock %}
                 </div>
            </div>
+           <script type="text/javascript">
+             $(document).ready(function(){
+                $(".toggle-show-more").remove();
+                $(".toggle-seperator").remove();
+             });
+           </script>
        </div>
     {% endblock %}
 {% endblock %}
