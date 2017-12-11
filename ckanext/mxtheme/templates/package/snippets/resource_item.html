@@ -3,7 +3,7 @@
 {% set url = h.url_for(controller='package', action=url_action, id=pkg.name, resource_id=res.id) %}
 
 <div class="resource-item dataset-item row" data-id="{{ res.id }}">
-  <div class="col-md-1 col-sm-1 col-xs-1">
+  <div class="col-md-1 col-sm-1 col-xs-2">
       {% if h.is_regular_format(res.format.lower()) %}
         <img src="https://cdn.datos.gob.mx/ckan/img/ic-{{ res.format.lower() or 'data' }}.png" alt="{{ res.format }}" style="width: 40px;">
       {% else %}
@@ -11,7 +11,7 @@
       {% endif %}
   </div>
   {% block resource_item_title %}
-  <div class="col-md-8 col-sm-8 col-xs-11">
+  <div class="col-md-8 col-sm-8 col-xs-10">
   <a class="heading" href="{{ url }}" title="{{ res.name or res.description }}">
     <h4>{{ h.resource_display_name(res) | truncate(50) }}</h4>
     {{ h.popular('views', res.tracking_summary.total, min=10) }}
