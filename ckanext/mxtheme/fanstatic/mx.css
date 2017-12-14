@@ -7570,7 +7570,7 @@ h1:after {
     text-align: center;
     padding: 5px 0;
     border-radius: 6px;
- 
+
     /* Position the tooltip text - see examples below! */
     position: absolute;
     z-index: 1;
@@ -7579,4 +7579,38 @@ h1:after {
 /* Show the tooltip text when you mouse over the tooltip container */
 .tooltip2:hover .tooltiptext {
     visibility: visible;
+}
+
+/* Institucion Stilos */
+
+.institution-item {
+  text-align: center;
+}
+.institution-item > p {
+  font-weight: 300;
+  text-align: left;
+}
+.institution-item > p > a {
+  color: #595959;
+}
+.institution-item > p.datasets {
+  font-size: 12px;
+  font-weight: 400;
+  color: #4a4a4a;
+}
+
+.institution-item {
+  margin-bottom: 20px;
+  padding: 15px 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #f6f6f6;
+  border-radius: 5px;
+}
+
+.institution-item {
+  height: 100%;
+}
+.institution-item > a {
+  display: inline-block;
+  margin: 20px auto 30px;
 }
