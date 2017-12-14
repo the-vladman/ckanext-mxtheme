@@ -7414,7 +7414,7 @@ h1:after {
 }
 
 .institution-item {
-  height: 100%;
+  height: 380px;
 }
 .institution-item > a {
   display: inline-block;
