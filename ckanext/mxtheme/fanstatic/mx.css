@@ -7058,9 +7058,9 @@ h1:after {
   margin-bottom: 10px;
 }
 
-.result-item {
+/*.result-item {
   height: auto;
-}
+}*/
 .result-item > a {
   display: inline-block;
   margin: 20px auto 30px;
@@ -7413,9 +7413,14 @@ h1:after {
   border-radius: 5px;
 }
 
-.institution-item {
+.institution-card {
   height: 380px;
 }
+
+.group-card {
+  height: 320px;
+}
+
 .institution-item > a {
   display: inline-block;
   margin: 20px auto 30px;
