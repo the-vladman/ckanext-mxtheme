@@ -128,17 +128,14 @@
            } else {
              setTimeout(function(){
                var hide = $('.recline-data-explorer');
-               console.log('HIDE 1', hide);
                if(hide.length > 0) {
                  $('.tab-content').show();
                  $('.nav-tabs-plain').show();
                } else {
                  setTimeout(function(){
-                   console.log('HIDE 2', hide);
     	             var errorText= $('#data-view-error').text();
-                   console.log('HIDENNNDNNDND', errorText);
                    $('.tab-content').show();
-                 }, 5000);
+                 }, 6000);
                };
              }, 5000);
            };
