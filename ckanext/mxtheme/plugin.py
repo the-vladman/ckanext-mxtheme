@@ -181,6 +181,9 @@ def get_grafica_base_url():
 def get_clear_organization_name(name):
     if (string.find(name, '-') > 0):
         name = name.replace('-',' ');
+        name = name.title()
+    else:
+        name = name.upper()
     return name
 
 def sorted_extras_dgm(extras):
