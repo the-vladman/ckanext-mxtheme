@@ -122,14 +122,17 @@
          $(document).ready(function() {
            $('.tab-content').hide();
            $('.nav-tabs-plain').hide();
-           setTimeout(function(){
-		var hide = $('.js-hide');
-		if(hide) {
-		  console.log('HIDENNNDNNDND',hide);
-		  $('.tab-content').show();
-           	  $('.nav-tabs-plain').show();
-		};
-           }, 3000);
+           var notFormatValid= $('.data-viewer-info');
+           if (!notFormatValid) {
+             setTimeout(function(){
+               var hide = $('.js-hide');
+               if(hide) {
+                 console.log('HIDENNNDNNDND',hide);
+                 $('.tab-content').show();
+                 $('.nav-tabs-plain').show();
+               };
+             }, 5000);
+           };
          });
        </script>
             <script type="text/javascript">
