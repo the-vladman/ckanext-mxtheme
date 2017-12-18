@@ -123,17 +123,18 @@
            $('.tab-content').hide();
            $('.nav-tabs-plain').hide();
            var notFormatValid= $('.data-viewer-info');
-           if (notFormatValid) {
+           if (notFormatValid.length > 0) {
              $('.tab-content').show();
            } else {
              setTimeout(function(){
-               var hide = $('.js-hide');
-               if(hide) {
-                 console.log('HIDENNNDNNDND',hide);
+               var hide = $('.recline-data-explorer');
+	             var errorText= $('#data-view-error').text();
+               if(hide.length > 0) {
+                 console.log('HIDENNNDNNDND',hide, errorText);
                  $('.tab-content').show();
                  $('.nav-tabs-plain').show();
                };
-             }, 5000);
+             }, 3000);
            };
          });
        </script>
