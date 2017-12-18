@@ -123,9 +123,13 @@
            $('.tab-content').hide();
            $('.nav-tabs-plain').hide();
            setTimeout(function(){
-             $('.tab-content').show();
-             $('.nav-tabs-plain').show();
-           }, 5000);
+		var hide = $('.js-hide');
+		if(hide) {
+		  console.log('HIDENNNDNNDND',hide);
+		  $('.tab-content').show();
+           	  $('.nav-tabs-plain').show();
+		};
+           }, 3000);
          });
        </script>
             <script type="text/javascript">
