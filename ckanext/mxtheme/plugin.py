@@ -180,7 +180,7 @@ def get_grafica_base_url():
 
 def get_clear_organization_name(name):
     if (string.find(name, '-') > 0):
-        name = 'este tiene'
+        name = name.replace('-',' ');
     return name
 
 def sorted_extras_dgm(extras):
@@ -238,5 +238,5 @@ class MxthemePlugin(plugins.SingletonPlugin):
             'get_adela_endpoint': get_adela_endpoint,
             'sorted_extras_dgm': sorted_extras_dgm,
             'get_grafica_base_url': get_grafica_base_url,
-            'get_clear_organization_name' get_clear_organization_name
+            'get_clear_organization_name': get_clear_organization_name
         }
