@@ -237,5 +237,6 @@ class MxthemePlugin(plugins.SingletonPlugin):
             'slugify_text': slugify_name,
             'get_adela_endpoint': get_adela_endpoint,
             'sorted_extras_dgm': sorted_extras_dgm,
-            'get_grafica_base_url': get_grafica_base_url
+            'get_grafica_base_url': get_grafica_base_url,
+            'get_clear_organization_name' get_clear_organization_name
         }
