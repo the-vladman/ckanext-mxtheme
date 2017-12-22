@@ -126,12 +126,13 @@
            if (notFormatValid.length < 0) {
              setTimeout(function(){
                var hide = $('.recline-data-explorer');
+               console.log('HIIDE 2',hide);
                if(hide.length > 0) {
                  $('.tab-content').show();
                  $('.nav-tabs-plain').show();
                } else {
                  setTimeout(function(){
-                   console.log(hide);
+                   console.log('HIIDE 2',hide);
                    if(hide.length > 0) {
                      $('.tab-content').show();
                      $('.nav-tabs-plain').show();
