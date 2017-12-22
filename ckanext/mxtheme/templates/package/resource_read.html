@@ -133,8 +133,11 @@
                  $('.nav-tabs-plain').show();
                } else {
                  setTimeout(function(){
-    	             var errorText= $('#data-view-error').text();
-                   $('.tab-content').show();
+                   console.log(hide);
+                   if(hide.length > 0) {
+                     $('.tab-content').show();
+                     $('.nav-tabs-plain').show();
+                   }
                  }, 6000);
                };
              }, 5000);
