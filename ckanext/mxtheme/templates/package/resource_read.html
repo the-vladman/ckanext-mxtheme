@@ -123,9 +123,7 @@
            $('.tab-content').hide();
            $('.nav-tabs-plain').hide();
            var notFormatValid= $('.data-viewer-info');
-           if (notFormatValid.length > 0) {
-             $('.tab-content').show();
-           } else {
+           if (notFormatValid.length < 0) {
              setTimeout(function(){
                var hide = $('.recline-data-explorer');
                if(hide.length > 0) {
@@ -133,8 +131,11 @@
                  $('.nav-tabs-plain').show();
                } else {
                  setTimeout(function(){
-    	             var errorText= $('#data-view-error').text();
-                   $('.tab-content').show();
+                   console.log(hide);
+                   if(hide.length > 0) {
+                     $('.tab-content').show();
+                     $('.nav-tabs-plain').show();
+                   }
                  }, 6000);
                };
              }, 5000);
