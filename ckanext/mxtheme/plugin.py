@@ -178,6 +178,13 @@ def get_grafica_base_url():
     url_grafica_base = os.environ.get("GRAFICA_BASE_URL", "https://cdn.datos.gob.mx/assets/css/main.css")
     return url_grafica_base
 
+def get_cdn_url():
+    is_prd = os.environ.get("IS_PRD", False)
+    cdn_url = 'https://cdn.datos.gob.mx/qa/bower_components/'
+    if is_prd:
+        cdn_url = 'https://cdn.datos.gob.mx/bower_components/'
+    return cdn_url
+
 def get_clear_organization_name(name):
     if (string.find(name, '-') > 0):
         name = name.replace('-',' ');
@@ -241,5 +248,6 @@ class MxthemePlugin(plugins.SingletonPlugin):
             'get_adela_endpoint': get_adela_endpoint,
             'sorted_extras_dgm': sorted_extras_dgm,
             'get_grafica_base_url': get_grafica_base_url,
+            'get_cdn_url': get_cdn_url,
             'get_clear_organization_name': get_clear_organization_name
         }
