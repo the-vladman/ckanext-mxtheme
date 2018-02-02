@@ -20,6 +20,7 @@ right: 10px; height: 20px; padding: 0; border: none; background: transparent;">
     {% if not no_title %}
       <div class="col-md-7 col-sm-7 results-home">
         <p>{% snippet 'snippets/search_result_text.html', query=query, count=count, type=type %}</p>
+        <em>Los datos aquí contenidos son responsabilidad de la organización que los publica</em>
       </div>
     {% endif %}
   {% endblock %}
