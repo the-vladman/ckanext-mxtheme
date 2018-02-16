@@ -194,7 +194,8 @@
                             {% block resource_additional_information_inner %}
                             <div class="module-content">
                               <h2>{{ _('Additional Information') }}</h2>
-                              <table class="table table-bordered">
+                              <div class="panel panel-default">
+                                <table class="table table-bordered">
                                 <thead>
                                   <tr>
                                     <th scope="col">{{ _('Field') }}</th>
@@ -316,6 +317,7 @@
                                   {% endfor %}
                                 </tbody>
                               </table>
+                              </div>
                             </div>
                             {% endblock %}
                           </section>
