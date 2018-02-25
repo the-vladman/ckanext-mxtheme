@@ -7422,3 +7422,9 @@ h1:after {
   display: inline-block;
   margin: 20px auto 30px;
 }
+
+
+.l-xs{
+  height: 30%;
+  width: 40%
+}
