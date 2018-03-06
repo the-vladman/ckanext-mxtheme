@@ -4,7 +4,9 @@ import i18n
 import logging
 import datetime
 import urlparse
-
+##### STRING
+import string
+import unicodedata
 import ckan.exceptions
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
@@ -183,6 +185,28 @@ def get_cdn_url():
         cdn_url = 'https://cdn.datos.gob.mx/bower_components/'
     return cdn_url
 
+def get_clear_organization_name(name):
+    if (string.find(name, '-') > 0):
+        name = name.replace('-',' ');
+        name = name.title()
+    else:
+        name = name.upper()
+    return name
+
+def no_accents(string):
+    s = ''.join((c for c in unicodedata.normalize('NFD',unicode(string)) if unicodedata.category(c) != 'Mn'))
+    return s.decode()
+
+def set_tag_icon(extras):
+    tag_name = 'tag-icon'
+    category = ''
+    for element in extras:
+        if element['key'] == 'theme':
+             category = no_accents(element['value']).lower().replace(' ','-')
+    if category != 'otros':
+        tag_name = tag_name + ' tag-' + category
+    return tag_name
+
 def sorted_extras_dgm(extras):
     sorted_list = sorted_extras(extras)
     initial_peroid =final_period = None
@@ -238,5 +262,7 @@ class MxthemePlugin(plugins.SingletonPlugin):
             'get_adela_endpoint': get_adela_endpoint,
             'sorted_extras_dgm': sorted_extras_dgm,
             'get_grafica_base_url': get_grafica_base_url,
-            'get_cdn_url': get_cdn_url
+            'get_cdn_url': get_cdn_url,
+            'get_clear_organization_name': get_clear_organization_name,
+            'set_tag_icon': set_tag_icon
         }
