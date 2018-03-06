@@ -7423,7 +7423,11 @@ h1:after {
   margin: 20px auto 30px;
 }
 
+.th-header{
+  font-size: 20px !important;
+  font-weight: bold !important;
+}
 
 .l-xs{
-  width: 40%
+  width: 40%;
 }
