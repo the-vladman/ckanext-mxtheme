@@ -29,7 +29,7 @@ Example:
         </p>
         {% endif %} -->
         <h3>
-          <span class="tag-icon tag-geoespacial"></span>
+          <span class="{{ h.set_tag_icon(package.extras) }}"></span>
           {% if package.private %}
           <span class="dataset-private label label-inverse">
             <i class="icon-lock"></i>

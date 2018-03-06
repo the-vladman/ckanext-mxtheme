@@ -193,6 +193,10 @@ def get_clear_organization_name(name):
         name = name.upper()
     return name
 
+def set_tag_icon(extras):
+    tag_name = extras.theme.lower()
+    return 'tag-icon' + tag_name
+
 def sorted_extras_dgm(extras):
     sorted_list = sorted_extras(extras)
     initial_peroid =final_period = None
@@ -249,5 +253,6 @@ class MxthemePlugin(plugins.SingletonPlugin):
             'sorted_extras_dgm': sorted_extras_dgm,
             'get_grafica_base_url': get_grafica_base_url,
             'get_cdn_url': get_cdn_url,
-            'get_clear_organization_name': get_clear_organization_name
+            'get_clear_organization_name': get_clear_organization_name,
+            'set_tag_icon': set_tag_icon
         }
