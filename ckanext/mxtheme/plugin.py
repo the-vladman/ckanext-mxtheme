@@ -6,7 +6,7 @@ import datetime
 import urlparse
 ##### STRING
 import string
-
+import unicodedata
 import ckan.exceptions
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
@@ -192,6 +192,10 @@ def get_clear_organization_name(name):
     else:
         name = name.upper()
     return name
+
+def no_accents(string):
+    s = ''.join((c for c in unicodedata.normalize('NFD',unicode(string)) if unicodedata.category(c) != 'Mn'))
+    return s.decode()
 
 def set_tag_icon(extras):
     tag_name = 'tag-icon'
