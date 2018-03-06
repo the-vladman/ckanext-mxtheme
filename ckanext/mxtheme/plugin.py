@@ -199,14 +199,14 @@ def no_accents(string):
 
 def set_tag_icon(extras):
     tag_name = 'tag-icon'
+    category = ''
     for element in extras:
         if element['key'] == 'theme':
-            category = element['value'].lower()
-            category = category.replace(' ','-')
+             category = no_accents(element['value']).lower().replace(' ','-')
     if category != 'otros':
-        tag_name = tag_name + ' ' + category
-    print tag_name
+        tag_name = tag_name + ' tag-' + category
     return tag_name
+
 
 def sorted_extras_dgm(extras):
     sorted_list = sorted_extras(extras)
