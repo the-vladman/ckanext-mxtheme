@@ -194,7 +194,10 @@ def get_clear_organization_name(name):
     return name
 
 def set_tag_icon(extras):
-    tag_name = extras.theme.lower()
+    print 'EXTRAS', extras
+    for element in extras:
+        if element['key'] == 'theme':
+            print element
     return 'tag-icon' + tag_name
 
 def sorted_extras_dgm(extras):
