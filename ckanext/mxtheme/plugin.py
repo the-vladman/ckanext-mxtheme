@@ -207,7 +207,6 @@ def set_tag_icon(extras):
         tag_name = tag_name + ' tag-' + category
     return tag_name
 
-
 def sorted_extras_dgm(extras):
     sorted_list = sorted_extras(extras)
     initial_peroid =final_period = None
