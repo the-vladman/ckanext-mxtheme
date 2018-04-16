@@ -139,13 +139,13 @@
                           $(".codelist").show();
                           $("#th_codelist").show();
                         }
-                        if(items.codelist_link){
-                          document.getElementById('codelist_link').innerHTML = items.codelist_link;
+                        if(items.codelistLink){
+                          document.getElementById('codelist_link').innerHTML = items.codelistLink;
                           $(".codelist_link").show();
                           $("#th_codelist_link").show();
                         }
-                        if(items.visualization){
-                          document.getElementById('visualization').innerHTML = items.visualization;
+                        if(items.tools){
+                          document.getElementById('visualization').innerHTML = items.tools;
                           $(".visualization").show();
                           $("#th_visualization").show();
                         }
@@ -283,7 +283,7 @@
                                     <td id="codelist_link"></td>
                                   </tr>
                                   <tr class="visualization" style="display: none;">
-                                    <th id="th_visualization" scope="row">{{ _('Herramienta de visualización') }}</th>
+                                    <th id="th_visualization" scope="row">{{ _('Herramientas para visualizar los datos') }}</th>
                                     <td id="visualization"></td>
                                   </tr>
                                   <tr class="copyright" style="display: none;">
