@@ -295,7 +295,7 @@
                                     <td id="spatial"></td>
                                   </tr>
                                   {% for key, value in h.format_resource_items(res.items()) %}
-                                    {% if key == 'package id' or key == 'revision id' or key == 'id' or key == 'resource group id' %}
+                                    {% if key == 'package id' or key == 'revision id' or key == 'id' or key == 'resource group id'%}
                                       <tr class="toggle-more">
                                         {# Esto no va a ser necesario cuando tengamos el idioma actualizado #}
                                         <th scope="row">
@@ -307,10 +307,17 @@
                                           Id
                                           {% elif key == 'resource group id' %}
                                           Id del Grupo de Recursos
+                                          {% else %}
+                                          {{_(key)}}
                                           {% endif %}
                                         </th>
                                         <td>
-                                          {{ _(value) }}
+                                          {% if key == "temporal_start" or key == "temporal_end" %}
+                                            {{ h.get_human_date(value) }}
+                                          {% else %}
+                                            {{ _(value) }}
+                                          {% endif %}
+
                                         </td>
                                       </tr>
                                     {% endif %}
