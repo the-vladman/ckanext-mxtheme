@@ -226,6 +226,14 @@ def sorted_extras_dgm(extras):
     return sorted_list
 
 
+def get_human_date(date):
+    try:
+        #2000 - 01 - 01T00: 00: 00Z
+        return datetime.datetime.strptime(date, "%Y-%m-%dT%H:%M:%SZ").strftime("%Y-%m-%d")
+    except:
+        return date
+
+
 class MxthemePlugin(plugins.SingletonPlugin):
     """
     Tema para branding de datos.gob.mx
@@ -264,5 +272,6 @@ class MxthemePlugin(plugins.SingletonPlugin):
             'get_grafica_base_url': get_grafica_base_url,
             'get_cdn_url': get_cdn_url,
             'get_clear_organization_name': get_clear_organization_name,
-            'set_tag_icon': set_tag_icon
+            'set_tag_icon': set_tag_icon,
+            'get_human_date': get_human_date
         }
