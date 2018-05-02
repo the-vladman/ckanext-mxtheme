@@ -139,13 +139,13 @@
                           $(".codelist").show();
                           $("#th_codelist").show();
                         }
-                        if(items.codelist_link){
-                          document.getElementById('codelist_link').innerHTML = items.codelist_link;
+                        if(items.codelistLink){
+                          document.getElementById('codelist_link').innerHTML = items.codelistLink;
                           $(".codelist_link").show();
                           $("#th_codelist_link").show();
                         }
-                        if(items.visualization){
-                          document.getElementById('visualization').innerHTML = items.visualization;
+                        if(items.tools){
+                          document.getElementById('visualization').innerHTML = items.tools;
                           $(".visualization").show();
                           $("#th_visualization").show();
                         }
@@ -164,8 +164,8 @@
                           $(".adela_created").show();
                           $("#th_adela_created").show();
                         }
-                        if(items.adela_modified){
-                          document.getElementById('adela_modified').innerHTML = items.adela_modified;
+                        if(items.modified){
+                          document.getElementById('adela_modified').innerHTML = items.modified;
                           $(".adela_modified").show();
                           $("#th_adela_modified").show();
                         }
@@ -300,7 +300,7 @@
                                     <td id="codelist_link"></td>
                                   </tr>
                                   <tr class="visualization" style="display: none;">
-                                    <th id="th_visualization" scope="row">{{ _('Herramienta de visualización') }}</th>
+                                    <th id="th_visualization" scope="row">{{ _('Herramientas para visualizar los datos') }}</th>
                                     <td id="visualization"></td>
                                   </tr>
                                   <tr class="copyright" style="display: none;">
@@ -316,7 +316,7 @@
                                     <td id="spatial_url"></td>
                                   </tr>
                                   {% for key, value in h.format_resource_items(res.items()) %}
-                                    {% if key == 'package id' or key == 'revision id' or key == 'id' or key == 'resource group id' %}
+                                    {% if key == 'package id' or key == 'revision id' or key == 'id' or key == 'resource group id'%}
                                       <tr class="toggle-more">
                                         {# Esto no va a ser necesario cuando tengamos el idioma actualizado #}
                                         <th scope="row">
@@ -328,10 +328,17 @@
                                           Id
                                           {% elif key == 'resource group id' %}
                                           Id del Grupo de Recursos
+                                          {% else %}
+                                          {{_(key)}}
                                           {% endif %}
                                         </th>
                                         <td>
-                                          {{ _(value) }}
+                                          {% if key == "temporal_start" or key == "temporal_end" %}
+                                            {{ h.get_human_date(value) }}
+                                          {% else %}
+                                            {{ _(value) }}
+                                          {% endif %}
+
                                         </td>
                                       </tr>
                                     {% endif %}
