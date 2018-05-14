@@ -6730,6 +6730,8 @@ body {
   margin: 0 0 432px;
 }
 dgm-footer {
+  width: 100%;
+  position: absolute;
 }
 /********************************
     Forms Styles
