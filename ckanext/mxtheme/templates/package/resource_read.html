@@ -130,7 +130,10 @@
                           $("#th_accrualPeriodicity").show();
                         }
                         if(items.temporal){
-                          document.getElementById('temporal').innerHTML = items.temporal;
+                          var dateArray = items.temporal.split('/');
+                          var init = dateArray[0].slice(0, 10);
+                          var end = dateArray[1].slice(0, 10);
+                          document.getElementById('temporal').innerHTML = 'De ' + start + ' a ' + end;
                           $(".temporal").show();
                           $("#th_temporal").show();
                         }
