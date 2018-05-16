@@ -177,15 +177,25 @@
 
                   xhr.send();
                   var resource_id = "{{res.id}}",
+                      api_datos_url = 'https://api.datos.gob.mx/v2/resources',
                       geo_url_wfs = "https://geo.datos.gob.mx/geoserver/ckan/ows?service=WFS&version=1.0.0&request=GetFeature&outputFormat=application/json&typeName=",
                       geo_url_wms = "http://geo.datos.gob.mx/geoserver/ckan/wms?service=WMS&version=1.1.0&request=GetMap&styles=&bbox=-117.773,14.987,-85.605,32.916&width=800&height=600&srs=EPSG:4326&format=image/png&layers=",
+
                       show_api_geo = function(api_url){
                         $("#spatial_url").html('<a href="' + api_url + '"> API Geogr&aacute;fica</a>');
                         $("#th_spatial_url").show();
                         $(".spatial_url").show();
                       };
-
-
+                      show_api = function(api_url){
+                        $("#api_url").html('<a href="' + api_url + '">Consultar</a>');
+                        $("#th_api_url").show();
+                        $(".api_url").show();
+                      };
+                  $.get(api_datos_url,{ id:resource_id }, function(data, status){
+                    if(data.results.length > 0){
+                      show_api(api_datos_url + '?id=' + resource_id);
+                    }
+                  });
                   $.get(geo_url_wfs + resource_id, function(response){
                         show_api_geo(geo_url_wfs + resource_id);
                     }).
@@ -194,6 +204,7 @@
                         show_api_geo(geo_url_wms + resource_id);
                       })
                     });
+                  $
               });
 
               //$(document).ready( function () { xhr.send(); });
@@ -319,6 +330,10 @@
                                   <tr class="spatial_url" style="display: none;">
                                     <th id="th_spatial_url" scope="row">{{ _('API geográfica') }}</th>
                                     <td id="spatial_url"></td>
+                                  </tr>
+                                  <tr class="api_url" style="display: none;">
+                                    <th id="th_api_url" scope="row">{{ _('API') }}</th>
+                                    <td id="api_url"></td>
                                   </tr>
                                   {% for key, value in h.format_resource_items(res.items()) %}
                                     {% if key == 'package id' or key == 'revision id' or key == 'id' or key == 'resource group id'%}
