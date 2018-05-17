@@ -177,6 +177,10 @@ def get_api_endpoint():
     api_endpoint = os.environ.get("API_ENDPOINT", "http://10.20.55.7/v2/api/buda")
     return api_endpoint
 
+def get_geoserver_endpoint():
+    geoserver_endpoint = os.environ.get("GEOSERVER_ENDPOINT", "http://10.20.55.7:8000/geoserver")
+    return geoserver_endpoint
+
 def get_grafica_base_url():
     url_grafica_base = os.environ.get("GRAFICA_BASE_URL", "https://cdn.datos.gob.mx/assets/css/main.css")
     return url_grafica_base
@@ -272,6 +276,7 @@ class MxthemePlugin(plugins.SingletonPlugin):
             'slugify_text': slugify_name,
             'get_adela_endpoint': get_adela_endpoint,
             'get_api_endpoint': get_api_endpoint,
+            'get_geoserver_endpoint': get_geoserver_endpoint,
             'sorted_extras_dgm': sorted_extras_dgm,
             'get_grafica_base_url': get_grafica_base_url,
             'get_cdn_url': get_cdn_url,
