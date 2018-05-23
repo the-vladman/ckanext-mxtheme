@@ -11,13 +11,12 @@ Example:
 #}
 
 
-{#
 {% if type == 'dataset' %}
-  {% set text_query = ungettext('{number} dataset found for "{query}"', '{number} datasets found for "{query}"', count) %}
-  {% set text_query_none = _('No datasets found for "{query}"') %}
-  {% set text_no_query = ungettext('{number} dataset found', '{number} datasets found', count) %}
-  {% set text_no_query_none = _('No datasets found') %}
-  #}
+  {% set text_query = ungettext('{number} Dato en datos.gob.mx para "{query}"', '{number} Datos en datos.gob.mx para "{query}"', count) %}
+  {% set text_query_none = 'No existen Datos en datos.gob.mx para "{query}"' %}
+  {% set text_no_query = ungettext('{number} Dato en datos.gob.mx', '{number} Datos en datos.gob.mx', count) %}
+  {% set text_no_query_none = 'No existen Datos en datos.gob.mx' %}
+{%- endif -%}
 
 {% if type == 'harvest' %}
   {% set text_query = ungettext('{number} harvest source found for "{query}"', '{number} harvest sources found for "{query}"', count) %}
@@ -38,22 +37,4 @@ Example:
   {% set text_no_query = ungettext('{number} institución encontrada', '{number} instituciones encontradas', count) %}
   {% set text_no_query_none = 'No existen instituciones' %}
 {%- endif -%}
-
-{% if type != 'dataset' %}
-  {% if query %}
-    {%- if count -%}
-      {{ text_query.format(number=h.localised_number(count), query=query) }}
-    {%- else -%}
-      {{ text_query_none.format(query=query) }}
-    {%- endif -%}
-  {%- else -%}
-    {%- if count -%}
-      {{ text_no_query.format(number=h.localised_number(count)) }}
-    {%- else -%}
-      {{ text_no_query_none }}
-    {%- endif -%}
-  {%- endif -%}
-{% else %}
-  <span class="counter-datos-ds"></span> Datos en datos.gob.mx
-{% endif %}
 
