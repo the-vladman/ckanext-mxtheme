@@ -6592,7 +6592,7 @@ li > a:hover {
   color: #9b9b9b;
 }
 .custom-select{
-  background: rgb(0, 0, 0) url("../img/ic_arrow_down.png") no-repeat 95% 50%;
+  background:#fff url("../img/ic_arrow_down.png") no-repeat 95% 50%
 }
 /* FUCKING INTERNET EXPLORER */
 @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {  
