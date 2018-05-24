@@ -13,16 +13,16 @@ Example:
 #}
 
 {% if type == 'dataset' %}
-  {% set text_query = ungettext('{number} dataset found for "{query}"', '{number} datasets found for "{query}"', count) %}
-  {% set text_query_none = _('No datasets found for "{query}"') %}
-  {% set text_no_query = ungettext('{number} dataset found', '{number} datasets found', count) %}
-  {% set text_no_query_none = _('No datasets found') %}
+  {% set text_query = ungettext('{number} Dato en datos.gob.mx para "{query}"', '{number} Datos en datos.gob.mx para "{query}"', count) %}
+  {% set text_query_none = 'No existen datos en datos.gob.mx para "{query}"' %}
+  {% set text_no_query = ungettext('{number} Dato en datos.gob.mx', '{number} Datos en datos.gob.mx', count) %}
+  {% set text_no_query_none = 'No existen datos en datos.gob.mx' %}
 
 {% elif type == 'group' %}
-  {% set text_query = ungettext('{number} group found for "{query}"', '{number} groups found for "{query}"', count) %}
-  {% set text_query_none = _('No groups found for "{query}"') %}
-  {% set text_no_query = ungettext('{number} group found', '{number} groups found', count) %}
-  {% set text_no_query_none = _('No groups found') %}
+  {% set text_query = ungettext('{number} Grupo encontrado para "{query}"', '{number} Grupos encontrados para "{query}"', count) %}
+  {% set text_query_none = 'No se encontraron grupos para "{query}"' %}
+  {% set text_no_query = ungettext('{number} grupo encontrado', '{number} grupos encontrados', count) %}
+  {% set text_no_query_none = 'No existen grupos' %}
 
 {% elif type == 'organization' %}
   {% set text_query = ungettext('{number} Institución encontrada para "{query}"', '{number} Instituciones encontradas para "{query}"', count) %}
