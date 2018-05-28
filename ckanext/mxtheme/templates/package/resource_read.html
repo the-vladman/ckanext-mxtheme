@@ -177,7 +177,7 @@
 
                   xhr.send();
                   var resource_id = "{{res.id}}",
-                      api_datos_url = 'https://api.datos.gob.mx/v2/resources',
+                      api_datos_url = 'https://api.datos.gob.mx',
                       api_geo_url = '{{h.get_api_endpoint()}}/ckan-geoserver',
                       geo_url_wfs = "{{h.get_geoserver_endpoint()}}/ckan/ows?service=WFS&version=1.0.0&request=GetFeature&outputFormat=application/json&typeName=",
                       geo_url_wms = "{{h.get_geoserver_endpoint()}}/ckan/wms?service=WMS&version=1.1.0&request=GetMap&styles=&bbox=-117.773,14.987,-85.605,32.916&width=800&height=600&srs=EPSG:4326&format=image/png&layers=",
@@ -195,9 +195,10 @@
                         $("#th_api_url").show();
                         $(".api_url").show();
                       };
-                  $.get(api_datos_url,{ id:resource_id }, function(data, status){
+                  $.get(api_datos_url,{ resource-id: resource_id }, function(data, status){
                     if(data.results.length > 0){
-                      show_api(api_datos_url + '?id=' + resource_id);
+                      urlAPI = data.results[0].url;
+                      show_api(urlAPI);
                     }
                   });
 
