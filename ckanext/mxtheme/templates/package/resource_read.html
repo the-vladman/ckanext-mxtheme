@@ -195,7 +195,7 @@
                         $("#th_api_url").show();
                         $(".api_url").show();
                       };
-                  $.get(api_datos_url,{ resource-id: resource_id }, function(data, status){
+                  $.get(api_datos_url,{ 'resource-id': resource_id }, function(data, status){
                     if(data.results.length > 0){
                       urlAPI = data.results[0].url;
                       show_api(urlAPI);
