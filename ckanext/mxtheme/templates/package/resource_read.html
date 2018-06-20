@@ -202,7 +202,7 @@
                     }
                   });
 
-                  $.get(api_geo_url, { id: resource_id }, function (data, status) {
+                  $.get(api_geo_url, { ckan: resource_id }, function (data, status) {
                   if (data.results.length > 0) {
                     var htmlUrls = '';
                     data.results.forEach(element => {
