@@ -187,6 +187,7 @@
                         return '<a href="' + geo_url_wfs + resource.geoserver + '">' + name_api + '</a>'; 
                       };
                       show_api_geo = function (url) {
+                        console.log(url);
                         $("#spatial_url").html(url);
                         $("#th_spatial_url").show();
                         $(".spatial_url").show();
