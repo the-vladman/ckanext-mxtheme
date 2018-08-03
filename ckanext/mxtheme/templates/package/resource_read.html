@@ -181,9 +181,10 @@
                       api_geo_url = '{{h.get_api_endpoint()}}/ckan-geoserver',
                       geo_url_wfs = "{{h.get_geoserver_endpoint()}}/ckan/ows?service=WFS&version=1.0.0&request=GetFeature&outputFormat=application/json&typeName=",
                       geo_url_wms = "{{h.get_geoserver_endpoint()}}/ckan/wms?service=WMS&version=1.1.0&request=GetMap&styles=&bbox=-117.773,14.987,-85.605,32.916&width=800&height=600&srs=EPSG:4326&format=image/png&layers=",
-
-                      add_url_geo = function(resource){
-                        return '<a href="' + geo_url_wfs + resource.geoserver + '">' + resource.geoserver.slice(38) + '</a>';
+                      
+                      add_url_geo = function (resource) {
+                        var name_api = resource.name_resource ? resource.name_resource : resource.geoserver;
+                        return '<a href="' + geo_url_wfs + resource.geoserver + '">' + name_api + '</a>'; 
                       };
                       show_api_geo = function (url) {
                         $("#spatial_url").html(url);
@@ -206,7 +207,7 @@
                   if (data.results.length > 0) {
                     var htmlUrls = '';
                     data.results.forEach(element => {
-                      htmlUrls.concat(add_url_geo(element));
+                      htmlUrls = htmlUrls + add_url_geo(element);
                     });
                     show_api_geo(htmlUrls);
                   }
